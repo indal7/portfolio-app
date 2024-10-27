@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+/* common-styles.css */
+
+/* Form container */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading and error messages */
+.loading {
+    text-align: center;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.error {
+    color: #dc3545;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+.button-primary {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #28a745;
+}
+
+.button-primary:hover {
+    background-color: #218838;
+}
+
+.button-secondary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    border: 1px solid #007bff;
+}
+
+.button-secondary:hover {
+    background-color: #0056b3;
+}
+
+.button-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    border: 1px solid #dc3545;
+}
+
+.button-danger:hover {
+    background-color: #c82333;
+}
+
+
+/* styles.css or styles.scss */
+.background {
+    position: relative;
+    height: 100vh; /* Full height */
+    background-image: url('assets/img.webp'); /* Set the background image */
+    background-size: cover; /* Cover the entire element */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+/* Overlay for better text visibility */
+.background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1; /* Ensure overlay is on top */
+}
+
+/* Ensure content appears on top of overlay */
+.router-outlet {
+    position: relative; /* Ensure content is above the overlay */
+    z-index: 2; /* Ensure content is above the overlay */
+}
+

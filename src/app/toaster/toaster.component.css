@@ -1,0 +1,19 @@
+.toaster-message {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    z-index: 9999;
+  }
+  
+  .toaster-message.success {
+    background-color: green;
+  }
+  
+  .toaster-message.error {
+    background-color: red;
+  }
+  

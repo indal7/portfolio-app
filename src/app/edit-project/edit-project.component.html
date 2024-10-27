@@ -1,0 +1,24 @@
+<!-- update-project.component.html -->
+<div class="update-project-container">
+    <h2>Update Project</h2>
+    <form (ngSubmit)="saveProject()">
+        <label for="title">Title:</label>
+        <input id="title" [(ngModel)]="project.title" name="title" required />
+
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="project.description" name="description" required></textarea>
+
+        <label for="link">Link:</label>
+        <input id="link" [(ngModel)]="project.link" name="link" />
+
+        <label for="status">project_status:</label>
+        <select id="status" [(ngModel)]="project.project_status" name="project_status">
+            <option value="Ongoing">Ongoing</option>
+            <option value="Completed">Completed</option>
+            <option value="On Hold">On Hold</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+
+        <button type="submit">Save</button>
+    </form>
+</div>

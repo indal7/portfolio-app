@@ -1,0 +1,141 @@
+/* Main container */
+.projects-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .projects-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Project list styles */
+  .projects-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .project-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    transition: transform 0.2s ease;
+  }
+  
+  .project-item:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Project info sections */
+  .project-main-info {
+    margin-bottom: 10px;
+  }
+  
+  .project-main-info h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin: 0;
+  }
+  
+  .project-main-info p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .project-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .project-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Project details styling */
+  .project-details {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .project-details p {
+    margin: 3px 0;
+  }
+  
+  /* Action buttons */
+  .project-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .update-button,
+  .delete-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .update-button {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .update-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-button {
+    background-color: #d9534f;
+    color: #fff;
+  }
+  
+  .delete-button:hover {
+    background-color: #c9302c;
+  }
+  
+  /* Responsive styling for smaller screens */
+  @media (max-width: 600px) {
+    .project-actions {
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    .project-item {
+      padding: 10px;
+    }
+  
+    .project-main-info h3 {
+      font-size: 18px;
+    }
+  
+    .project-link,
+    .project-details p {
+      font-size: 13px;
+    }
+  
+    .update-button,
+    .delete-button {
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+  }
+  
+
+  .add-more-project {
+    background-color: #28a745; /* Green for add project button */
+    color: white; /* Text color */
+    margin-top: 20px; /* Space above the button */
+    width: 100%; /* Full width */
+    padding: 10px; /* Inner padding */
+}

@@ -26,10 +26,7 @@ export class LoginComponent {
           this.loginResponse = response;
           this.toasterService.success('Login successful!');
           
-          // Save JWT token in localStorage
           localStorage.setItem('authToken', response.message.token);
-          
-          // Optionally store the user's email
           localStorage.setItem('userEmail', this.email);
   
           this.router.navigate(['/projects-list']);

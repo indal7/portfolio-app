@@ -26,6 +26,8 @@ jobs:
 
       - name: Build application
         run: npm run build -- --prod
+      - name: List dist directory for debugging
+        run: ls -R ./dist
       
       - name: Verify Build Directory
         run: |

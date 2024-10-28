@@ -55,5 +55,6 @@ jobs:
       - name: Deploy to Production Environment
         run: |
           echo "Deploying to Production Environment"
-          aws s3 sync ./dist/portfolio-app/ s3://my-portfolio-app-new/ --region ap-southeast-1 --delete
+          aws s3 sync ./dist/my-portfolio-app/ s3://my-portfolio-app-new/ --region ap-southeast-1 --delete
+
 

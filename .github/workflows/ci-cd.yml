@@ -26,6 +26,13 @@ jobs:
 
       - name: Build application
         run: npm run build -- --prod
+      
+      - name: Verify Build Directory
+        run: |
+          if [ ! -d "./dist/my-portfolio-app/" ]; then
+            echo "Build directory not found!"
+            exit 1
+          fi
 
   deploy-prod:
     runs-on: ubuntu-latest

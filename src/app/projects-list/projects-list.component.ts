@@ -3,6 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Project, ApiResponse } from '../project.model';
 import { Router } from '@angular/router';
 import { ToasterService } from '../toaster.service';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-projects-list',
@@ -11,7 +13,7 @@ import { ToasterService } from '../toaster.service';
 })
 export class ProjectsListComponent implements OnInit {
   @Input() projects: Project[] = [];
-  apiUrl = 'http://54.251.133.142:5001/projects';
+  apiUrl = environment.apiUrl;
 
   constructor(
     private http: HttpClient,
@@ -31,7 +33,7 @@ export class ProjectsListComponent implements OnInit {
       params = params.set('email', email);
     }
   
-    this.http.get<ApiResponse>(this.apiUrl, { params }).subscribe(
+    this.http.get<ApiResponse>(`${this.apiUrl}/projects`, { params }).subscribe(
       response => {
         if (response.success) {
           this.projects = response.data || [];
@@ -61,7 +63,7 @@ export class ProjectsListComponent implements OnInit {
   
     let params = new HttpParams().set('email', email);
   
-    this.http.delete<ApiResponse>(`${this.apiUrl}/${id}`, { params }).subscribe(
+    this.http.delete<ApiResponse>(`${this.apiUrl}/projects/${id}`, { params }).subscribe(
       response => {
         if (response.success) {
           console.log('Project deleted successfully');

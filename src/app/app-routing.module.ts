@@ -6,6 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';  // Import the AppRoutingModule
+import { ResetPasswordComponent } from './reset-password/reset-password.component'; // Adjust the path as needed
+
 
 // const routes: Routes = [
 //   { path: 'login', component: LoginComponent },
@@ -18,11 +20,12 @@ import { EditProjectComponent } from './edit-project/edit-project.component';  /
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login on default
   { path: 'login', component: LoginComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'create-project', component: CreateProjectComponent },
   { path: 'edit-project/:id', component: EditProjectComponent }, // Assuming you are editing specific projects by ID
   { path: 'projects-list', component: ProjectsListComponent },
-  { path: '**', redirectTo: '/login' }, // Wildcard route for any undefined paths
+  { path: '**', redirectTo: '/login' },
 ];
 
 

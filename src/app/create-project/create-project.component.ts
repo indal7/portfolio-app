@@ -2,6 +2,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToasterService } from '../toaster.service';
+import { environment } from 'src/environments/environment';
+
 
 interface Project {
   id: string;
@@ -37,6 +39,7 @@ export class CreateProjectComponent {
     email: '',
     resumeFile: null
   };
+  apiUrl = environment.apiUrl;
 
   @Output() projectCreated = new EventEmitter<void>();
 
@@ -60,7 +63,7 @@ export class CreateProjectComponent {
       email: localStorage.getItem('userEmail') || '',
     };
   
-    this.http.post<ApiResponse>('http://54.251.133.142:5001/projects', payload, {
+    this.http.post<ApiResponse>(`${this.apiUrl}/projects`, payload, {
       headers: {
         'Content-Type': 'application/json'
       }

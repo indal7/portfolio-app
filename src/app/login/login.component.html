@@ -1,7 +1,7 @@
 <div class="login-container">
   <h2>Login</h2>
 
-  <form (ngSubmit)="login()">
+  <form *ngIf="!showPasswordReset" (ngSubmit)="login()">
     <label for="email">Email:</label>
     <input id="email" [(ngModel)]="email" name="email" required>
 
@@ -14,4 +14,15 @@
   <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
 
   <button type="button" (click)="goToRegister()">Don't have an account? Register here</button>
+  <button type="button" (click)="togglePasswordReset()">Forgot Password?</button>
+
+  <!-- Password Reset Section -->
+  <div *ngIf="showPasswordReset" class="password-reset">
+    <h3>Reset Password</h3>
+    <label for="resetEmail">Enter your email:</label>
+    <input id="resetEmail" [(ngModel)]="resetEmail" name="resetEmail" required>
+    <button type="button" (click)="requestPasswordReset()">Send Reset Link</button>
+    <div *ngIf="resetMessage" class="message">{{ resetMessage }}</div>
+    <button type="button" (click)="togglePasswordReset()">Back to Login</button>
+  </div>
 </div>

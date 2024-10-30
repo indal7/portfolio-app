@@ -4,6 +4,8 @@ import { Project, ApiResponse } from '../project.model';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { ToasterService } from '../toaster.service';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-edit-project',
@@ -26,7 +28,7 @@ export class EditProjectComponent {
     project_status: '',
     tags:[] // Ensure this matches your Project interface
   };
-  apiUrl = 'http://54.251.133.142:5001/projects'; 
+  apiUrl = environment.apiUrl;
   constructor(private http: HttpClient, private route: ActivatedRoute, private router : Router,
     private toasterService: ToasterService
   ) {}
@@ -39,7 +41,7 @@ export class EditProjectComponent {
   }
 
   fetchProject(id: string): void {
-    this.http.get<any>(`${this.apiUrl}/${id}`).subscribe(
+    this.http.get<any>(`${this.apiUrl}/projects/${id}`).subscribe(
       data => {
         if (data.success) {
           this.project = data.data; // Ensure this matches your response structure
@@ -52,7 +54,7 @@ export class EditProjectComponent {
   }
 
   saveProject(): void {
-    this.http.put(`${this.apiUrl}/${this.project.id}`, this.project).subscribe(
+    this.http.put(`${this.apiUrl}/projects/${this.project.id}`, this.project).subscribe(
       () => {
         this.toasterService.success('Project updated successfully!');
         this.router.navigate(['/projects-list']);

@@ -13,6 +13,7 @@ import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 
 import { AuthInterceptor } from './auth-interceptor.service';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthInterceptor } from './auth-interceptor.service';
     ToasterComponent,
     CreateProjectComponent,
     ProjectsListComponent,
-    EditProjectComponent
+    EditProjectComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

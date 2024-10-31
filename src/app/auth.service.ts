@@ -60,9 +60,8 @@ export class AuthService {
     isAdmin(): boolean {
     const token = localStorage.getItem('authToken');
     if (token) {
-      const decodedToken: any = jwtDecode(token); // Decode the token
-      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa", decodedToken)
-      return decodedToken.role === 'admin'; // Check if the role is 'admin'
+      const decodedToken: any = jwtDecode(token);
+      return decodedToken.role === 'admin';
     }
     return false; // If no token, user is not admin
   }

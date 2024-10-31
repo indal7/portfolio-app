@@ -1,3 +1,4 @@
+<!-- Original Template Structure -->
 <div class="login-container">
   <h2>Login</h2>
 
@@ -14,7 +15,9 @@
   <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
 
   <button type="button" (click)="goToRegister()">Don't have an account? Register here</button>
-  <button type="button" (click)="togglePasswordReset()">Forgot Password?</button>
+  
+  <!-- Button for Forgot Password -->
+  <button type="button" (click)="togglePasswordReset()" *ngIf="!showPasswordReset">Forgot Password?</button>
 
   <!-- Password Reset Section -->
   <div *ngIf="showPasswordReset" class="password-reset">

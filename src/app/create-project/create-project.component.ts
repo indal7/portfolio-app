@@ -71,7 +71,6 @@ export class CreateProjectComponent {
       response => {
         if (response.success) {
           this.toasterService.success(`Project added successfully: ${response.message}`);
-          console.log('Project added successfully', response);
           this.router.navigate(['/projects-list']);
           this.projectCreated.emit();
           this.resetForm();

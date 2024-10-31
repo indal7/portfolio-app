@@ -1,11 +1,10 @@
 <app-toaster></app-toaster>
-<!-- <div class="background"></div> -->
-<router-outlet></router-outlet>
-
-<!-- <app-create-project></app-create-project> -->
+<app-header></app-header>''
 <div class="content">
-    <span>
-      {{ title }} app is running!
-    </span>
-  </div>
-  
+  <router-outlet></router-outlet>
+  <span>
+    {{ title }} app is running!
+  </span>
+</div>
+
+<app-footer></app-footer>

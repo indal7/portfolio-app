@@ -7,7 +7,6 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('authToken');
 
-    console.log('Token from localStorage:', token); // Debugging log
 
     if (token) {
       const cloned = req.clone({
@@ -15,7 +14,6 @@ export class AuthInterceptor implements HttpInterceptor {
           Authorization: `Bearer ${token}` // Correctly setting the header
         }
       });
-      console.log('Cloned request headers:', cloned.headers); // Check the headers here
       return next.handle(cloned); // Pass the cloned request
     }
 

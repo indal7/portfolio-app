@@ -1,0 +1,80 @@
+.header {
+    background-color: #343a40; /* Dark background for contrast */
+    padding: 1rem 2rem; /* Increased padding for better spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
+}
+
+.header ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.header li {
+    margin: 0 20px; /* Increased margin for better spacing */
+    position: relative; /* Needed for hover effect */
+}
+
+.header a {
+    color: #ffffff; /* White text for contrast */
+    text-decoration: none; /* Remove underline from links */
+    font-weight: 500; /* Medium weight for links */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.header a:hover {
+    color: #ffc107; /* Highlight color on hover */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* White text for user info */
+}
+
+.user-profile button {
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #ffc107; /* Highlight color for button */
+    border: none; /* Remove default border */
+    padding: 0.5rem 1rem; /* Padding for button */
+    border-radius: 5px; /* Rounded corners for button */
+    color: #343a40; /* Dark text for button */
+    font-weight: 600; /* Bold text for button */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.user-profile button:hover {
+    background-color: #e0a800; /* Darker shade on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .header ul {
+        flex-direction: column; /* Stack links vertically */
+        align-items: center; /* Center items */
+    }
+
+    .header li {
+        margin: 10px 0; /* Vertical spacing between links */
+    }
+}
+
+
+.disabled {
+    color: gray;
+    pointer-events: none;
+    text-decoration: none;
+    cursor: not-allowed;
+}

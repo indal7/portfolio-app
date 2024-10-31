@@ -139,3 +139,48 @@
     width: 100%; /* Full width */
     padding: 10px; /* Inner padding */
 }
+
+.project-details {
+  background-color: #f9f9f9; /* Light background for contrast */
+  border: 1px solid #ddd; /* Light border for separation */
+  border-radius: 5px; /* Slight rounding of corners */
+  padding: 15px; /* Padding for better spacing */
+  margin: 10px 0; /* Margin to separate from other elements */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.project-details p {
+  margin: 5px 0; /* Spacing between paragraphs */
+  font-size: 16px; /* Base font size for readability */
+}
+
+.project-details strong {
+  color: #333; /* Dark color for emphasis */
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin: 0.5rem 0; /* Margin for separation */
+  transition: background-color 0.3s ease;
+}
+
+.badge-success {
+  background-color: #28a745; /* Green for Ongoing */
+}
+
+.badge-danger {
+  background-color: #dc3545; /* Red for On Hold */
+}
+
+.badge-complete {
+  background-color: #007bff; /* Blue for Completed */
+}
+
+.badge-cancelled {
+  background-color: #6c757d; /* Grey for Cancelled */
+}

@@ -66,7 +66,6 @@ export class ProjectsListComponent implements OnInit {
     this.http.delete<ApiResponse>(`${this.apiUrl}/projects/${id}`, { params }).subscribe(
       response => {
         if (response.success) {
-          console.log('Project deleted successfully');
           this.toasterService.success('Project deleted successfully!');
           this.getProjects(); // Refresh list after deleting
         } else {

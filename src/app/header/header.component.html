@@ -1,0 +1,41 @@
+<header class="header">
+    <nav>
+        <ul>
+            <li>
+                <a 
+                    routerLink="/projects-list" 
+                    [ngClass]="{'disabled': !isLoggedIn}" 
+                    (click)="!isLoggedIn ? navigateToLogin($event) : null">
+                    Projects
+                </a>
+            </li>
+            <li>
+                <a 
+                    routerLink="/about" 
+                    [ngClass]="{'disabled': !isLoggedIn}"
+                    (click)="!isLoggedIn ? navigateToLogin($event) : null">
+                    About
+                </a>
+            </li>
+            <li>
+                <a 
+                    routerLink="/contact" 
+                    [ngClass]="{'disabled': !isLoggedIn}"
+                    (click)="!isLoggedIn ? navigateToLogin($event) : null">
+                    Contact
+                </a>
+            </li>
+            <li *ngIf="isLoggedIn && userRole === 'admin'">
+                <a routerLink="/manage-users">Manage Users</a>
+            </li>
+            <li class="user-profile" *ngIf="isLoggedIn">
+                <span>Welcome, {{ userName }}! </span>
+                <span style="margin-left: 10px;">{{ userEmail }}</span>
+                <button (click)="logout()">Logout</button>
+            </li>
+            <li *ngIf="!isLoggedIn">
+                <a routerLink="/login">Login</a>
+            </li>
+        </ul>
+    </nav>
+</header>

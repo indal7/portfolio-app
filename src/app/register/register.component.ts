@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToasterService } from '../toaster.service';
+import { environment } from 'src/environments/environment';
+
 
 
 @Component({
@@ -16,6 +18,7 @@ export class RegisterComponent {
   errorMessage: string = '';
   successMessage: string = '';
   name: string = '';
+  apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient, private router: Router, private toasterService: ToasterService) {}
 
@@ -41,7 +44,7 @@ export class RegisterComponent {
     const registerData = { email: this.email, password: this.password, name: this.name };
   
     // Send registration request
-    this.http.post<any>('http://localhost:5001/register', registerData).subscribe(
+    this.http.post<any>(`${this.apiUrl}/register`, registerData).subscribe(
       response => {
         if (response.success) {
           this.successMessage = 'Registration successful!';

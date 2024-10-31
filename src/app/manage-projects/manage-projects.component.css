@@ -1,0 +1,107 @@
+/* src/app/manage-projects/manage-projects.component.css */
+
+.projects-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.projects-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-item:last-child {
+    border-bottom: none;
+}
+
+.project-main-info {
+    flex-grow: 1;
+}
+
+.project-main-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.project-details {
+    margin: 10px 0;
+}
+
+.project-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.update-button,
+.delete-button,
+.add-more-project {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.update-button {
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+
+.update-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #e53935;
+}
+
+.add-more-project {
+    background-color: #2196F3; /* Blue */
+    color: white;
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+}
+
+.add-more-project:hover {
+    background-color: #1976D2;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.badge-success {
+    background-color: #dff0d8; /* Light green */
+    color: #3c763d; /* Dark green */
+}
+
+.badge-danger {
+    background-color: #f2dede; /* Light red */
+    color: #a94442; /* Dark red */
+}

@@ -1,8 +1,14 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToasterService } from '../toaster.service';
+import { AuthService } from '../auth.service';
 import { environment } from 'src/environments/environment';
+
+interface ApiResponse {
+  success: boolean;
+  message?: string;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,23 +21,22 @@ export class LoginComponent {
   errorMessage: string = '';
   resetMessage: string = '';
   apiUrl = environment.apiUrl;
-  loginResponse: any;
-  showPasswordReset: boolean = false; // Toggle state for password reset
+  showPasswordReset: boolean = false;
 
-  constructor(private http: HttpClient, private router: Router, private toasterService: ToasterService) {}
+  constructor(
+    private router: Router,
+    private toasterService: ToasterService,
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   login(): void {
     const loginData = { email: this.email, password: this.password };
   
-    this.http.post<any>(`${this.apiUrl}/login`, loginData).subscribe(
-      response => {
-        if (response.success && response.message.token) {
-          this.loginResponse = response;
+    this.authService.login(loginData).subscribe(
+      (response: ApiResponse) => {
+        if (response.success) {
           this.toasterService.success('Login successful!');
-          
-          localStorage.setItem('authToken', response.message.token);
-          localStorage.setItem('userEmail', this.email);
-  
           this.router.navigate(['/projects-list']);
         } else {
           this.toasterService.error('Login failed. No token received.');
@@ -49,25 +54,27 @@ export class LoginComponent {
   }
 
   togglePasswordReset(): void {
-    this.showPasswordReset = !this.showPasswordReset; // Toggle the password reset view
-    this.resetMessage = ''; // Clear previous reset message
+    this.showPasswordReset = !this.showPasswordReset;
+    this.resetMessage = ''; 
+    this.cdr.detectChanges(); 
   }
+  
 
   requestPasswordReset(): void {
     if (!this.resetEmail) {
       this.toasterService.error('Please enter your email address.');
       return;
     }
-
+  
     const resetData = { email: this.resetEmail };
     
-    this.http.post<any>(`${this.apiUrl}/request_password_reset`, resetData).subscribe(
-      response => {
+    this.authService.requestPasswordReset(resetData).subscribe(
+      (response: ApiResponse) => {
         if (response.success) {
           this.resetMessage = 'Password reset link has been sent to your email!';
           this.toasterService.success(this.resetMessage);
         } else {
-          this.resetMessage = response.message;
+          this.resetMessage = response.message || 'Error sending reset link.';
           this.toasterService.error(this.resetMessage);
         }
       },

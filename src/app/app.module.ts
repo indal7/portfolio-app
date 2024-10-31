@@ -14,6 +14,10 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
 
 import { AuthInterceptor } from './auth-interceptor.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { ManageProjectsComponent } from './manage-projects/manage-projects.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     CreateProjectComponent,
     ProjectsListComponent,
     EditProjectComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    HeaderComponent,
+    FooterComponent,
+    ManageProjectsComponent,
+    ManageUsersComponent
   ],
   imports: [
     BrowserModule,

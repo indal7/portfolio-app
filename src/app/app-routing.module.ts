@@ -7,6 +7,12 @@ import { CreateProjectComponent } from './create-project/create-project.componen
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';  // Import the AppRoutingModule
 import { ResetPasswordComponent } from './reset-password/reset-password.component'; // Adjust the path as needed
+import { HttpClientModule } from '@angular/common/http';
+import { ManageProjectsComponent } from './manage-projects/manage-projects.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+
 
 
 // const routes: Routes = [
@@ -25,12 +31,16 @@ const routes: Routes = [
   { path: 'create-project', component: CreateProjectComponent },
   { path: 'edit-project/:id', component: EditProjectComponent }, // Assuming you are editing specific projects by ID
   { path: 'projects-list', component: ProjectsListComponent },
+  { path: 'manage-projects', component: ManageProjectsComponent },
+  { path: 'manage-users', component: ManageUsersComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: '/login' },
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), HttpClientModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

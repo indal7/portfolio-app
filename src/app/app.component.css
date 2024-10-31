@@ -1,34 +1,79 @@
-/* styles.css or component-specific CSS file */
-html, body {
-    height: 100%; /* Make sure the body takes the full height */
-    margin: 0;    /* Remove default margins */
+/* html, body {
+    height: 100%;
+    margin: 0;
   }
   
   app-header {
-    position: fixed; /* Fix the header */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 60px; /* Set your desired header height */
-    background: #fff; /* Header background color */
-    z-index: 1000; /* Ensure it sits above other content */
+    height: 60px;
+    background: #fff;
+    z-index: 1000;
   }
   
   app-footer {
-    position: fixed; /* Fix the footer */
+    position: fixed; 
     bottom: 0;
     left: 0;
     right: 0;
-    height: 60px; /* Set your desired footer height */
-    background: #fff; /* Footer background color */
-    z-index: 1000; /* Ensure it sits above other content */
+    height: 60px; 
+    background: #fff;
+    z-index: 1000;
   }
   
   .content {
-    margin-top: 60px; /* Space for the header */
-    margin-bottom: 60px; /* Space for the footer */
-    overflow-y: auto; /* Enable vertical scrolling */
-    height: calc(100vh - 120px); /* Calculate remaining height (100vh - header height - footer height) */
-    padding: 10px; /* Optional padding for content */
+    margin-top: 60px;
+    margin-bottom: 60px;
+    overflow-y: auto;
+    height: calc(100vh - 120px);
+    padding: 10px;
   }
-  
+   */
+
+
+   
+   /* Reset margins and paddings for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+html, body {
+    height: 100%; /* Ensure the body takes full height */
+}
+
+/* Use flexbox for the app component */
+:host {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh; /* Ensure the component takes at least the full viewport height */
+}
+
+/* Header styles */
+app-header {
+    flex: 0 0 60px; /* Fixed height for header */
+    background-color: #343a40; /* Dark background for contrast */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Main content styles */
+.main-content {
+    flex: 1; /* Allow main content to grow and fill the available space */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+    padding: 20px; /* Optional: padding for content */
+}
+
+/* Footer styles */
+app-footer {
+    flex: 0 0 40px; /* Fixed height for footer */
+    background-color: #333; /* Change to your preferred color */
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+    padding: 10px; /* Padding for the footer */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+   

@@ -1,9 +1,16 @@
+/* Ensure the header is fixed at the top */
 .header {
+    position: fixed; /* Fix the header to the top */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
     background-color: #343a40; /* Dark background for contrast */
     padding: 1rem 2rem; /* Increased padding for better spacing */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 1000; /* Ensure it is above other content */
 }
 
+/* Additional styles remain the same */
 .header nav {
     display: flex;
     justify-content: space-between;
@@ -71,10 +78,9 @@
     }
 }
 
-
 .disabled {
     color: gray;
-    pointer-events: none;
-    text-decoration: none;
-    cursor: not-allowed;
+    pointer-events: none; /* Prevent interaction */
+    text-decoration: none; /* Remove underline */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
 }

@@ -1,4 +1,3 @@
-// src/app/manage-users/manage-users.component.ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ToasterService } from '../toaster.service';
@@ -26,7 +25,12 @@ export class ManageUsersComponent implements OnInit {
     this.http.get<any>(`${this.apiUrl}/fetch_all_users`).subscribe(
       response => {
         if (response.success) {
-          this.users = response.message.users || [];
+          // Initialize users with roleChanged and originalRole properties
+          this.users = response.message.users.map(user => ({
+            ...user,
+            originalRole: user.role, // Store original role
+            roleChanged: false // Set default to false
+          })) || [];
           this.toasterService.success('Users loaded successfully!');
         } else {
           this.toasterService.error(response.message || 'Error fetching users.');
@@ -40,8 +44,7 @@ export class ManageUsersComponent implements OnInit {
   }
 
   updateUserRole(userEmail: string, newRole: string): void {
-
-    this.http.put<any>(`${this.apiUrl}/update_user_role`, { role: newRole, email:userEmail }).subscribe(
+    this.http.put<any>(`${this.apiUrl}/update_user_role`, { role: newRole, email: userEmail }).subscribe(
       response => {
         if (response.success) {
           this.toasterService.success('User role updated successfully!');
@@ -55,5 +58,10 @@ export class ManageUsersComponent implements OnInit {
         this.toasterService.error('Failed to update user role. Please try again.');
       }
     );
+  }
+
+  // Method to handle the role change
+  onRoleChange(user: any): void {
+    user.roleChanged = user.role !== user.originalRole; // Set flag based on comparison
   }
 }

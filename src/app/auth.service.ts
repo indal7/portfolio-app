@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http'; // Import HttpClient
 import { environment } from 'src/environments/environment'; // Import environment
 import { tap } from 'rxjs/operators'; // Import tap operator for observable
+import { jwtDecode} from 'jwt-decode'
 
 @Injectable({
   providedIn: 'root'
@@ -56,6 +57,15 @@ export class AuthService {
     return !!localStorage.getItem('authToken');
   }
 
+    isAdmin(): boolean {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      const decodedToken: any = jwtDecode(token); // Decode the token
+      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa", decodedToken)
+      return decodedToken.role === 'admin'; // Check if the role is 'admin'
+    }
+    return false; // If no token, user is not admin
+  }
   // Method to request password reset
   requestPasswordReset(emailData: { email: string }): Observable<any> {
     // Make sure this method expects an object with an email property

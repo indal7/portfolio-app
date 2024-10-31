@@ -14,14 +14,19 @@
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>
-                    <select [(ngModel)]="user.role">
+                    <select [(ngModel)]="user.role" (change)="onRoleChange(user)">
                         <option value="admin">Admin</option>
                         <option value="user">User</option>
                         <option value="NA">NA</option>
                     </select>
                 </td>
                 <td>
-                    <button class="update-role-button" (click)="updateUserRole(user.email, user.role)">Update Role</button>
+                    <button 
+                        class="update-role-button" 
+                        (click)="updateUserRole(user.email, user.role)" 
+                        [disabled]="!user.roleChanged">
+                        Update Role
+                    </button>
                 </td>
             </tr>
         </tbody>

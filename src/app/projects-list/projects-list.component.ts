@@ -4,7 +4,7 @@ import { Project, ApiResponse } from '../project.model';
 import { Router } from '@angular/router';
 import { ToasterService } from '../toaster.service';
 import { environment } from 'src/environments/environment';
-
+import { AuthService } from '../auth.service'; // Import AuthService
 
 @Component({
   selector: 'app-projects-list',
@@ -14,25 +14,38 @@ import { environment } from 'src/environments/environment';
 export class ProjectsListComponent implements OnInit {
   @Input() projects: Project[] = [];
   apiUrl = environment.apiUrl;
+  isAdmin: boolean = false;
 
   constructor(
     private http: HttpClient,
     private router: Router,
-    private toasterService: ToasterService
+    private toasterService: ToasterService,
+    private authService: AuthService // Inject AuthService
   ) {}
 
   ngOnInit(): void {
     this.getProjects();
+    if (this.authService.isAdmin()) {
+      this.isAdmin = true;
+      // Show admin-specific content
+    }
   }
-
+  
   getProjects(): void {
+    // Check if the user is logged in
+    if (!this.authService.isLoggedIn()) {
+      this.toasterService.error('You must be logged in to view projects.');
+      this.router.navigate(['/login']); // Redirect to login
+      return;
+    }
+
     const email = localStorage.getItem('userEmail');
     let params = new HttpParams();
-  
+
     if (email) {
       params = params.set('email', email);
     }
-  
+
     this.http.get<ApiResponse>(`${this.apiUrl}/projects`, { params }).subscribe(
       response => {
         if (response.success) {
@@ -54,15 +67,22 @@ export class ProjectsListComponent implements OnInit {
   }
 
   deleteProject(id: string): void {
+    // Check if the user is logged in
+    if (!this.authService.isLoggedIn()) {
+      this.toasterService.error('You must be logged in to delete a project.');
+      this.router.navigate(['/login']); // Redirect to login
+      return;
+    }
+
     const email = localStorage.getItem('userEmail');
-  
+
     if (!email) {
       this.toasterService.error('Email is missing');
       return;
     }
-  
+
     let params = new HttpParams().set('email', email);
-  
+
     this.http.delete<ApiResponse>(`${this.apiUrl}/projects/${id}`, { params }).subscribe(
       response => {
         if (response.success) {
@@ -78,7 +98,6 @@ export class ProjectsListComponent implements OnInit {
       }
     );
   }
-  
 
   addMoreProject(): void {
     this.router.navigate(['/create-project']);

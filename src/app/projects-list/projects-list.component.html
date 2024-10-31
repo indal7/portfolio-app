@@ -8,18 +8,21 @@
                 <a [href]="project.link" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
             </div>
 
+            <!-- Conditionally display additional information based on user role -->
+            <div *ngIf="isAdmin">
+                <!-- <p><strong>ID:</strong> {{ project.id }}</p> -->
+                <p><strong>User:</strong> {{ project.email }}</p>
+            </div>
 
-                <p><strong>ID:</strong> {{ project.id }}</p>
-                <span class="badge" [ngClass]="{
-                    'badge-success': project.project_status === 'Ongoing',
-                    'badge-danger': project.project_status === 'On Hold',
-                    'badge-complete': project.project_status === 'Completed',
-                    'badge-cancelled': project.project_status === 'Cancelled'
-                }">
-                    {{ project.project_status }}
-                </span>
-                <p><strong>Updated On:</strong> {{ project.updated_on | date: 'MMMM d, y, h:mm a' }}</p>
-
+            <span class="badge" [ngClass]="{
+                'badge-success': project.project_status === 'Ongoing',
+                'badge-danger': project.project_status === 'On Hold',
+                'badge-complete': project.project_status === 'Completed',
+                'badge-cancelled': project.project_status === 'Cancelled'
+            }">
+                {{ project.project_status }}
+            </span>
+            <p><strong>Updated On:</strong> {{ project.updated_on | date: 'MMMM d, y, h:mm a' }}</p>
 
             <div class="project-actions">
                 <button class="update-button" (click)="updateProject(project)">Update</button>

@@ -29,7 +29,7 @@
                 <a routerLink="/manage-users">Manage Users</a>
             </li>
             <li class="user-profile" *ngIf="isLoggedIn">
-                <span>Welcome, {{ userName }}! </span>
+                <span>Welcome, {{ userName }}!</span>
                 <span style="margin-left: 10px;">{{ userEmail }}</span>
                 <button (click)="logout()">Logout</button>
             </li>

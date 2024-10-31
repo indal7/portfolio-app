@@ -68,6 +68,6 @@ export class AuthService {
   // Method to request password reset
   requestPasswordReset(emailData: { email: string }): Observable<any> {
     // Make sure this method expects an object with an email property
-    return this.http.post<any>(`${this.apiUrl}/password-reset`, emailData);
+    return this.http.post<any>(`${this.apiUrl}/request_password_reset`, emailData);
   }
 }

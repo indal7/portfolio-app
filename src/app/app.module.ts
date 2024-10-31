@@ -18,6 +18,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ManageProjectsComponent } from './manage-projects/manage-projects.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
     HeaderComponent,
     FooterComponent,
     ManageProjectsComponent,
-    ManageUsersComponent
+    ManageUsersComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

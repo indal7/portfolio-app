@@ -1,6 +1,6 @@
 {
   "name": "portfolio-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "build": "ng build --configuration production",

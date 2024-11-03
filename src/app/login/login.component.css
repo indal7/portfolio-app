@@ -1,98 +1,84 @@
-/* Centering the login container */
+/* Login Container */
 .login-container {
-    max-width: 400px;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Styling the form elements */
-  .login-container h2 {
-    text-align: center;
-    color: #333;
-    font-size: 24px;
-  }
-  
-  .login-container label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-  }
-  
-  .login-container input[type="email"],
-  .login-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  
-  .login-container input[type="email"]:focus,
-  .login-container input[type="password"]:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-  }
-  
-  /* Styling the buttons */
-  .login-container button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login-container button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  button[type="button"] {
-    display: block;
-    margin: 10px auto;
-    background: none;
-    color: #007bff;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  button[type="button"]:hover {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-  
-  /* Error message styling */
-  .error {
-    color: #d9534f;
-    font-size: 14px;
-    margin-top: 10px;
-    text-align: center;
-  }
-  .password-reset {
-    opacity: 1; /* Make it visible by default */
-    transition: opacity 0.5s ease;
-  }
-  
-  .password-reset.ng-enter {
-    opacity: 0;
-  }
-  
-  .password-reset.ng-enter-active {
-    opacity: 1;
-  }
-  
-  .hidden {
-    display: none;
-  }  
+  max-width: 400px; /* Limit the width of the login container */
+  margin: 50px auto; /* Center the container with top margin */
+  padding: 20px; /* Padding inside the container */
+  background-color: #fff; /* White background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Headings */
+h2 {
+  text-align: center; /* Center the heading */
+  color: #333; /* Dark color for better readability */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Form Labels */
+label {
+  display: block; /* Make labels block elements */
+  margin-bottom: 5px; /* Space below each label */
+  font-weight: bold; /* Bold font for emphasis */
+}
+
+/* Input Fields */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%; /* Full width for inputs */
+  padding: 10px; /* Padding inside inputs */
+  margin-bottom: 15px; /* Space below each input */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Slightly rounded corners */
+  font-size: 16px; /* Larger font for better readability */
+}
+
+/* Input Focus */
+input:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow on focus */
+}
+
+/* Submit Button */
+button[type="submit"],
+button[type="button"] {
+  width: 100%; /* Full width for buttons */
+  padding: 10px; /* Padding inside buttons */
+  background-color: #007bff; /* Primary button color */
+  color: white; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Slightly rounded corners */
+  font-size: 16px; /* Larger font for better readability */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Error Message */
+.error {
+  color: red; /* Red color for error messages */
+  margin: 10px 0; /* Space around the error message */
+  text-align: center; /* Center the error message */
+}
+
+/* Reset Password Section */
+.password-reset {
+  margin-top: 20px; /* Space above the reset section */
+  padding: 15px; /* Padding inside the reset section */
+  background-color: #f9f9f9; /* Light background for the reset section */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Slightly rounded corners */
+}
+
+/* Reset Message */
+.message {
+  color: green; /* Green color for success messages */
+  margin-top: 10px; /* Space above the success message */
+  text-align: center; /* Center the message */
+}

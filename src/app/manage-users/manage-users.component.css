@@ -1,57 +1,91 @@
-/* Container for the entire user management section */
+/* Users Container */
 .users-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: auto;
+    max-width: 800px; /* Limit the width of the user management container */
+    margin: 50px auto; /* Center the container with top margin */
+    padding: 20px; /* Padding inside the container */
+    background-color: #fff; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Headings */
 h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark color for better readability */
+    margin-bottom: 20px; /* Space below the heading */
 }
 
+/* Users Table */
 .users-table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse; /* Collapse borders for a clean look */
 }
 
-.users-table th,
-.users-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
+/* Table Head */
+thead {
+    background-color: #007bff; /* Primary color for the header */
+    color: white; /* White text for contrast */
 }
 
-.users-table th {
-    background-color: #007bff;
-    color: white;
+/* Table Header Cells */
+th {
+    padding: 10px; /* Padding inside header cells */
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Bold font for emphasis */
 }
 
-.user-item:hover {
-    background-color: #f1f1f1;
+/* Table Body Cells */
+td {
+    padding: 10px; /* Padding inside table cells */
+    border-bottom: 1px solid #ccc; /* Light gray border below each row */
 }
 
+/* User Item Rows */
+.user-item:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray background for even rows */
+}
+
+/* Dropdown Styles */
+select {
+    padding: 5px; /* Padding inside the select */
+    border-radius: 4px; /* Slightly rounded corners */
+    border: 1px solid #ccc; /* Light gray border */
+    font-size: 14px; /* Font size for readability */
+}
+
+/* Update Role Button */
 .update-role-button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    padding: 8px 12px; /* Padding for button */
+    background-color: #28a745; /* Green background for the button */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
 }
 
+/* Button Hover Effect */
 .update-role-button:hover {
-    background-color: #0056b3;
+    background-color: #218838; /* Darker green on hover */
 }
 
-/* Responsive styling */
+/* Disabled Button */
+.update-role-button[disabled] {
+    background-color: #ccc; /* Gray background for disabled button */
+    cursor: not-allowed; /* Not-allowed cursor */
+}
+
+/* Responsive Design */
 @media (max-width: 600px) {
+    .users-container {
+        padding: 10px; /* Reduced padding on small screens */
+    }
+
     .users-table {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 14px; /* Smaller font size for better fit */
+    }
+
+    th, td {
+        padding: 8px; /* Reduced padding in table cells */
     }
 }

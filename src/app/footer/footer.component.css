@@ -1,24 +1,33 @@
+/* Footer Styles */
 .footer {
-    background-color: #333; /* Change to your preferred color */
-    color: white; /* Text color */
-    text-align: center; /* Center text */
-    padding: 10px; /* Padding for the footer */
-    position: relative; /* Adjusts based on layout */
-    bottom: 0; /* Aligns the footer at the bottom */
-    left: 0; /* Aligns to the left */
-    right: 0; /* Aligns to the right */
+    background-color: #333; /* Dark background for the footer */
+    color: #fff; /* White text color */
+    padding: 20px; /* Padding around the footer */
+    text-align: center; /* Center align text */
+    position: relative; /* Position relative for potential absolute positioning of elements */
+    bottom: 0; /* Ensure footer stays at the bottom */
+    width: 100%; /* Full width */
 }
 
-/* Ensuring the footer is visible above any content */
 .footer p {
     margin: 0; /* Remove default margin */
-    font-size: 14px; /* Set a standard font size */
+    font-size: 14px; /* Font size for footer text */
 }
 
-/* Responsive adjustments */
+/* Add any additional styles as needed */
+.footer a {
+    color: #fff; /* White color for links */
+    text-decoration: underline; /* Underline links */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.footer a:hover {
+    color: #f44336; /* Change color on hover for links */
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     .footer {
-        font-size: 12px; /* Adjust font size for smaller screens */
-        padding: 8px; /* Adjust padding for smaller screens */
+        font-size: 12px; /* Smaller font size for mobile */
     }
 }

@@ -1,107 +1,144 @@
-/* src/app/manage-projects/manage-projects.component.css */
-
+/* Projects Container Styles */
 .projects-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Padding around the container */
+    background-color: #f9f9f9; /* Light background color for contrast */
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
+/* Heading Style */
+.projects-container h2 {
+    font-size: 24px; /* Font size for heading */
+    margin-bottom: 20px; /* Spacing below heading */
+    color: #333; /* Dark color for the heading */
 }
 
+/* Projects List Styles */
 .projects-list {
-    list-style-type: none;
-    padding: 0;
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
 }
 
+/* Project Item Styles */
 .project-item {
-    border-bottom: 1px solid #e0e0e0;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #fff; /* White background for each project item */
+    margin-bottom: 15px; /* Space between project items */
+    padding: 15px; /* Padding within each project item */
+    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for project items */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
 }
 
-.project-item:last-child {
-    border-bottom: none;
+.project-item:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
 }
 
-.project-main-info {
-    flex-grow: 1;
-}
-
+/* Project Main Info Styles */
 .project-main-info h3 {
-    margin: 0;
-    font-size: 1.2em;
+    font-size: 20px; /* Font size for project title */
+    color: #007bff; /* Primary color for project title */
+    margin: 0; /* Remove default margin */
 }
 
+.project-main-info p {
+    font-size: 14px; /* Font size for project description */
+    color: #555; /* Darker gray for description */
+}
+
+/* Project Link Style */
+.project-link {
+    display: inline-block; /* Make link block for better spacing */
+    margin-top: 10px; /* Space above the link */
+    color: #007bff; /* Primary link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth color change on hover */
+}
+
+.project-link:hover {
+    color: #0056b3; /* Darker shade on hover */
+}
+
+/* Project Details Styles */
 .project-details {
-    margin: 10px 0;
+    margin-top: 10px; /* Space above project details */
+    font-size: 14px; /* Font size for details */
+    color: #666; /* Lighter gray for details */
 }
 
-.project-actions {
-    display: flex;
-    gap: 10px;
-}
-
-.update-button,
-.delete-button,
-.add-more-project {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.update-button {
-    background-color: #4caf50; /* Green */
-    color: white;
-}
-
-.update-button:hover {
-    background-color: #45a049;
-}
-
-.delete-button {
-    background-color: #f44336; /* Red */
-    color: white;
-}
-
-.delete-button:hover {
-    background-color: #e53935;
-}
-
-.add-more-project {
-    background-color: #2196F3; /* Blue */
-    color: white;
-    margin-top: 20px;
-    display: block;
-    width: 100%;
-}
-
-.add-more-project:hover {
-    background-color: #1976D2;
-}
-
+/* Badge Styles */
 .badge {
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-size: 0.9em;
+    display: inline-block; /* Inline block for badges */
+    padding: 4px 8px; /* Padding for badges */
+    border-radius: 12px; /* Rounded corners for badges */
+    font-size: 12px; /* Font size for badges */
+    color: #fff; /* White text color for badges */
 }
 
+/* Badge Colors */
 .badge-success {
-    background-color: #dff0d8; /* Light green */
-    color: #3c763d; /* Dark green */
+    background-color: #28a745; /* Green for ongoing */
 }
 
 .badge-danger {
-    background-color: #f2dede; /* Light red */
-    color: #a94442; /* Dark red */
+    background-color: #dc3545; /* Red for on hold */
+}
+
+/* Project Actions Styles */
+.project-actions {
+    margin-top: 15px; /* Space above actions */
+}
+
+.update-button, .delete-button {
+    padding: 10px 15px; /* Padding for buttons */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners for buttons */
+    cursor: pointer; /* Change cursor to pointer */
+    margin-right: 10px; /* Space between buttons */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.update-button {
+    background-color: #007bff; /* Primary color for update button */
+    color: #fff; /* White text for button */
+}
+
+.update-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.delete-button {
+    background-color: #dc3545; /* Danger color for delete button */
+    color: #fff; /* White text for button */
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Darker shade on hover */
+}
+
+/* Add More Project Button Styles */
+.add-more-project {
+    display: inline-block; /* Make it block for spacing */
+    margin-top: 20px; /* Space above button */
+    padding: 10px 20px; /* Padding for button */
+    background-color: #28a745; /* Green color for add button */
+    color: #fff; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.add-more-project:hover {
+    background-color: #218838; /* Darker shade on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .projects-container {
+        padding: 10px; /* Reduce padding on mobile */
+    }
+
+    .project-item {
+        padding: 10px; /* Reduce padding for project items */
+    }
 }

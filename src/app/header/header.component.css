@@ -1,86 +1,85 @@
-/* Ensure the header is fixed at the top */
-.header {
-    position: fixed; /* Fix the header to the top */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
-    right: 0; /* Align to the right */
-    background-color: #343a40; /* Dark background for contrast */
-    padding: 1rem 2rem; /* Increased padding for better spacing */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    z-index: 1000; /* Ensure it is above other content */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Additional styles remain the same */
+body {
+    font-family: Arial, sans-serif; /* You can change this to your preferred font */
+}
+
+/* Header Styles */
+.header {
+    background-color: #333; /* Dark background for the header */
+    color: #fff; /* White text color */
+    padding: 15px 20px; /* Padding around the header */
+}
+
 .header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Center items vertically */
+    max-width: 1200px; /* Limit the maximum width of the navigation */
+    margin: 0 auto; /* Center the navigation */
 }
 
 .header ul {
-    list-style-type: none;
-    display: flex;
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: space-between; /* Space out items */
 }
 
 .header li {
-    margin: 0 20px; /* Increased margin for better spacing */
-    position: relative; /* Needed for hover effect */
+    position: relative; /* For positioning child elements */
 }
 
 .header a {
-    color: #ffffff; /* White text for contrast */
-    text-decoration: none; /* Remove underline from links */
-    font-weight: 500; /* Medium weight for links */
-    transition: color 0.3s ease; /* Smooth color transition on hover */
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* White text color */
+    padding: 10px 15px; /* Padding around the links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions for hover effects */
 }
 
 .header a:hover {
-    color: #ffc107; /* Highlight color on hover */
+    background-color: #555; /* Darker background on hover */
 }
 
-.user-profile {
-    display: flex;
-    align-items: center;
-    color: #ffffff; /* White text for user info */
+.header a.disabled {
+    color: rgba(255, 255, 255, 0.5); /* Light color for disabled links */
+    pointer-events: none; /* Disable click events */
+    cursor: not-allowed; /* Change cursor style */
 }
 
-.user-profile button {
-    margin-left: 10px;
-    cursor: pointer;
-    background-color: #ffc107; /* Highlight color for button */
-    border: none; /* Remove default border */
-    padding: 0.5rem 1rem; /* Padding for button */
-    border-radius: 5px; /* Rounded corners for button */
-    color: #343a40; /* Dark text for button */
-    font-weight: 600; /* Bold text for button */
-    transition: background-color 0.3s ease; /* Smooth background transition */
+.header .user-profile {
+    display: flex; /* Flexbox for user profile */
+    align-items: center; /* Center align items vertically */
 }
 
-.user-profile button:hover {
-    background-color: #e0a800; /* Darker shade on hover */
+.header .user-profile span {
+    margin-right: 10px; /* Space between name and email */
 }
 
-/* Responsive adjustments */
+.header button {
+    background-color: #f44336; /* Red background for the logout button */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 8px 12px; /* Padding around the button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.header button:hover {
+    background-color: #c62828; /* Darker red on hover */
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .header {
-        padding: 1rem; /* Adjust padding for smaller screens */
-    }
-
     .header ul {
-        flex-direction: column; /* Stack links vertically */
-        align-items: center; /* Center items */
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center align items */
     }
 
     .header li {
-        margin: 10px 0; /* Vertical spacing between links */
+        margin-bottom: 10px; /* Space between vertical items */
     }
-}
-
-.disabled {
-    color: gray;
-    pointer-events: none; /* Prevent interaction */
-    text-decoration: none; /* Remove underline */
-    cursor: not-allowed; /* Change cursor to indicate disabled state */
 }

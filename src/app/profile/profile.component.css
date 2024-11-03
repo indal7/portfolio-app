@@ -1,184 +1,128 @@
 /* Profile Container */
 .profile-container {
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 25px;
-    border-radius: 12px;
-    background-color: #f0f5ff; /* Soft background color */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 800px; /* Maximum width for the profile container */
+    margin: 50px auto; /* Center the container with top margin */
+    padding: 20px; /* Padding inside the container */
+    background-color: #f7f9fc; /* Light background for a fresh look */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* Header Styling */
+/* Headings */
 h2 {
-    text-align: center;
-    color: #1a3e72;
-    font-weight: bold;
-    font-size: 1.8em;
-    margin-bottom: 15px;
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark color for better readability */
+    margin-bottom: 20px; /* Space below the heading */
+    font-size: 28px; /* Larger font size */
 }
 
-/* Toggle Edit Button */
+h3 {
+    color: #007bff; /* Primary color for subsections */
+    margin-bottom: 15px; /* Space below the subsection heading */
+}
+
+/* Button Styles */
 button {
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 12px;
-    font-size: 0.9em;
-    display: block;
-    margin: 10px auto;
+    padding: 10px 15px; /* Padding for buttons */
+    background-color: #007bff; /* Primary color for buttons */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
 
+/* Button Hover Effect */
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
 /* Loading Spinner */
 .spinner {
-    text-align: center;
-    color: #555;
-    font-style: italic;
+    text-align: center; /* Center text for loading */
+    font-size: 18px; /* Font size for loading message */
+    color: #555; /* Gray color for loading text */
 }
 
-/* Profile Details Section */
+/* Profile Details */
 .profile-details {
-    margin-top: 25px;
+    margin-top: 20px; /* Space above the profile details */
+}
+
+/* Profile Picture Wrapper */
+.profile-picture-wrapper {
+    display: flex; /* Flexbox layout for profile picture */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 20px; /* Space below the profile picture */
 }
 
 /* Profile Picture */
-.profile-picture-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
 .profile-picture {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #1a73e8;
-    margin-bottom: 10px;
+    width: 100px; /* Fixed width for profile picture */
+    height: 100px; /* Fixed height for profile picture */
+    border-radius: 50%; /* Circular profile picture */
+    margin-right: 15px; /* Space between picture and text */
+    border: 2px solid #007bff; /* Border for profile picture */
 }
 
-.profile-picture-wrapper p {
-    color: #6c757d;
-    font-style: italic;
-    font-size: 0.85em;
+/* Form Styles */
+form {
+    background-color: white; /* White background for form */
+    padding: 20px; /* Padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* Labels */
+/* Form Labels */
 label {
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: #444;
-    font-size: 0.9em;
-    display: block;
+    display: block; /* Block display for labels */
+    margin: 10px 0 5px; /* Margin above and below labels */
+    color: #333; /* Dark color for labels */
 }
 
-/* Form Fields */
-input[type="text"],
-input[type="email"],
-input[type="file"],
-textarea,
-select {
-    width: 100%;
-    margin-bottom: 18px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 15px;
-    background-color: #ffffff;
-    transition: border-color 0.3s;
+/* Form Inputs */
+input, textarea, select {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Slightly rounded corners */
+    margin-bottom: 15px; /* Space below each input */
+    font-size: 14px; /* Font size for inputs */
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus,
-select:focus {
-    border-color: #1a73e8;
-    outline: none;
-}
-
-/* Text Area */
-textarea {
-    height: 100px;
-    resize: none;
-}
-
-/* Tags Section */
+/* Tags Container */
 .tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
+    display: flex; /* Flex layout for tags */
+    flex-wrap: wrap; /* Allow tags to wrap */
 }
 
 .tag {
-    background-color: #1a73e8;
-    color: white;
-    border-radius: 4px;
-    padding: 5px 10px;
-    margin: 5px;
-    display: inline-flex;
-    align-items: center;
-    font-size: 0.85em;
+    background-color: #007bff; /* Tag background color */
+    color: white; /* Tag text color */
+    border-radius: 3px; /* Rounded corners for tags */
+    padding: 5px 10px; /* Padding inside tags */
+    margin: 5px; /* Space around each tag */
 }
 
 .tag button {
-    background: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    margin-left: 6px;
-    font-weight: bold;
-    padding: 0 5px;
-    line-height: 1;
+    background: transparent; /* Transparent background for button inside tag */
+    color: white; /* White color for close button */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
-/* Form Submit Button */
-button[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 15px;
-    display: block;
-    width: 100%;
-}
+/* Responsive Design */
+@media (max-width: 600px) {
+    .profile-container {
+        padding: 10px; /* Reduced padding on small screens */
+    }
 
-button[type="submit"]:hover {
-    background-color: #388e3c;
-}
+    h2 {
+        font-size: 24px; /* Smaller font size for heading */
+    }
 
-/* Error Message */
-.error-message {
-    color: #d9534f;
-    text-align: center;
-    margin: 10px 0;
-    font-weight: bold;
-}
-
-
-.download-resume {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 6px 12px;
-    color: #fff;
-    background-color: #1a73e8;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.9em;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.download-resume:hover {
-    background-color: #0056b3;
+    button {
+        width: 100%; /* Full width for buttons */
+    }
 }

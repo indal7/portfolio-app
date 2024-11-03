@@ -70,4 +70,19 @@ export class AuthService {
     // Make sure this method expects an object with an email property
     return this.http.post<any>(`${this.apiUrl}/request_password_reset`, emailData);
   }
+  // Get user profile data
+  getUserProfile(email): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/profile/${email}`).pipe(
+      tap(response => {
+        if (response.success) {
+          console.log('User profile fetched:', response.data);
+        }
+      })
+    );
+  }
+
+  // Update user profile
+  updateUserProfile(formData: FormData) {
+    return this.http.post(`${this.apiUrl}/api/profile`, formData)
+  }
 }

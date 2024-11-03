@@ -20,6 +20,8 @@ import { ManageProjectsComponent } from './manage-projects/manage-projects.compo
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { ContactComponent } from './contact/contact.component';
     ManageProjectsComponent,
     ManageUsersComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

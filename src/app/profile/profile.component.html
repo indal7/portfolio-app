@@ -1,0 +1,117 @@
+<div class="profile-container">
+    <h2>User Profile</h2>
+
+    <button (click)="toggleEditMode()">
+        {{ editMode ? 'Cancel' : 'Edit Profile' }}
+    </button>
+
+    <div *ngIf="isLoading" class="spinner">Loading profile...</div>
+
+    <div class="profile-details" *ngIf="!isLoading">
+        <ng-container *ngIf="!errorFetchingData; else createProfileTemplate">
+            <h3>{{ editMode ? 'Update Profile' : 'Profile Details' }}</h3>
+
+            <div *ngIf="!editMode">
+                <!-- Existing profile details display -->
+                <div class="profile-picture-wrapper">
+                    <img 
+                        [src]="userProfile.profile_photo || 'assets/default-profile.png'" 
+                        alt="Profile Picture"
+                        class="profile-picture"
+                    />
+                    <p *ngIf="!userProfile.profile_photo">No profile picture available.</p>
+                </div>
+                <p><strong>Username:</strong> {{ userProfile.username }}</p>
+                <p><strong>Email:</strong> {{ userProfile.email }}</p>
+                <p><strong>Bio:</strong> {{ userProfile.bio }}</p>
+                <p><strong>Contact Info:</strong> {{ userProfile.contact_info | json }}</p>
+                <p><strong>Skills:</strong> {{ userProfile.skills }}</p>
+
+                <div *ngIf="userProfile.resume">
+                    <p><strong>Resume:</strong> {{ extractFileName(userProfile.resume) }}</p>
+                    <a [href]="userProfile.resume" target="_blank" download class="download-resume">
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+
+            <form *ngIf="editMode" (ngSubmit)="updateProfile()" #profileForm="ngForm">
+                <!-- Existing form for updating profile -->
+                <label for="username">Username:</label>
+                <input id="username" [(ngModel)]="userProfile.username" name="username" required>
+
+                <label for="email">Email:</label>
+                <input id="email" [(ngModel)]="userProfile.email" name="email" required email>
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" [(ngModel)]="userProfile.bio" name="bio"></textarea>
+
+                <label for="contactType">Contact Type:</label>
+                <select id="contactType" [(ngModel)]="userProfile.contact_info.type" name="contactType" required>
+                  <option value="email">Email</option>
+                  <option value="phone">Phone</option>
+                </select>
+                
+                <label for="contactValue">Contact Value:</label>
+                <input id="contactValue" [(ngModel)]="userProfile.contact_info.value" name="contactValue" required placeholder="Enter contact value">                
+
+                <label for="skills">Skills:</label>
+                <input id="skills" [(ngModel)]="userProfile.skills" name="skills">
+
+                <label for="projectTags">Project Tags:</label>
+                <input id="projectTags" [(ngModel)]="newTag" (keypress)="addTag($event)" placeholder="Press Enter to add tag">
+                <div class="tags-container">
+                    <span *ngFor="let tag of userProfile.projectTags" class="tag">
+                        {{ tag }} <button type="button" (click)="removeTag(tag)">x</button>
+                    </span>
+                </div>
+
+                <label for="profilePicture">Profile Picture:</label>
+                <input type="file" (change)="onProfilePhotoChange($event)" accept="image/*">
+                <p *ngIf="userProfile.profile_photo">Selected: {{ extractFileName(userProfile.profile_photo) }}</p>
+                
+                <label for="resume">Upload Resume:</label>
+                <input type="file" (change)="onResumeChange($event)" accept=".pdf,.doc,.docx">
+                <p *ngIf="userProfile.resume">Selected: {{ extractFileName(userProfile.resume) }}</p>
+                
+                <button type="submit">Update Profile</button>
+            </form>
+        </ng-container>
+
+        <ng-template #createProfileTemplate>
+            <h3>Create Profile</h3>
+            <form (ngSubmit)="createProfile()" #createProfileForm="ngForm">
+                <label for="newUsername">Username:</label>
+                <input id="newUsername" [(ngModel)]="userProfile.username" name="newUsername" required>
+
+                <label for="newEmail">Email:</label>
+                <input id="newEmail" [(ngModel)]="userProfile.email" name="newEmail" required email>
+
+                <label for="newBio">Bio:</label>
+                <textarea id="newBio" [(ngModel)]="userProfile.bio" name="newBio"></textarea>
+
+                <label for="newContactType">Contact Type:</label>
+                <select id="newContactType" [(ngModel)]="userProfile.contact_info.type" name="newContactType" required>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                </select>
+
+                <label for="newContactValue">Contact Value:</label>
+                <input id="newContactValue" [(ngModel)]="userProfile.contact_info.value" name="newContactValue" required placeholder="Enter contact value">
+
+                <label for="newSkills">Skills:</label>
+                <input id="newSkills" [(ngModel)]="userProfile.skills" name="newSkills">
+
+                <label for="newProjectTags">Project Tags:</label>
+                <input id="newProjectTags" [(ngModel)]="newTag" (keypress)="addTag($event)" placeholder="Press Enter to add tag">
+                <div class="tags-container">
+                    <span *ngFor="let tag of userProfile.projectTags" class="tag">
+                        {{ tag }} <button type="button" (click)="removeTag(tag)">x</button>
+                    </span>
+                </div>
+
+                <button type="submit">Create Profile</button>
+            </form>
+        </ng-template>
+    </div>
+</div>

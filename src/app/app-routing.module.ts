@@ -12,6 +12,7 @@ import { ManageProjectsComponent } from './manage-projects/manage-projects.compo
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'manage-users', component: ManageUsersComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '**', redirectTo: '/login' },
 ];
 

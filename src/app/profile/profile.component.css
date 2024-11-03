@@ -1,0 +1,184 @@
+/* Profile Container */
+.profile-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: #f0f5ff; /* Soft background color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Header Styling */
+h2 {
+    text-align: center;
+    color: #1a3e72;
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+/* Toggle Edit Button */
+button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 12px;
+    font-size: 0.9em;
+    display: block;
+    margin: 10px auto;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Loading Spinner */
+.spinner {
+    text-align: center;
+    color: #555;
+    font-style: italic;
+}
+
+/* Profile Details Section */
+.profile-details {
+    margin-top: 25px;
+}
+
+/* Profile Picture */
+.profile-picture-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #1a73e8;
+    margin-bottom: 10px;
+}
+
+.profile-picture-wrapper p {
+    color: #6c757d;
+    font-style: italic;
+    font-size: 0.85em;
+}
+
+/* Labels */
+label {
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #444;
+    font-size: 0.9em;
+    display: block;
+}
+
+/* Form Fields */
+input[type="text"],
+input[type="email"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #ffffff;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #1a73e8;
+    outline: none;
+}
+
+/* Text Area */
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Tags Section */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.tag {
+    background-color: #1a73e8;
+    color: white;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 5px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85em;
+}
+
+.tag button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 6px;
+    font-weight: bold;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+/* Form Submit Button */
+button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #388e3c;
+}
+
+/* Error Message */
+.error-message {
+    color: #d9534f;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+
+.download-resume {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    color: #fff;
+    background-color: #1a73e8;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.download-resume:hover {
+    background-color: #0056b3;
+}

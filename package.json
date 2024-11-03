@@ -2,6 +2,11 @@
   "name": "portfolio-app",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "build": "ng build --configuration production",
+    "start": "ng serve",
+    "test": "ng test"
+  },
   "dependencies": {
     "@angular/animations": "^18.2.10",
     "@angular/common": "^18.2.10",

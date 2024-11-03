@@ -20,12 +20,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
       - name: Install dependencies
         run: npm install --legacy-peer-deps
       - name: JWT Install
         run: npm install jwt-decode@4.0.0 --legacy-peer-deps
-
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
       - name: Build application
         run: npm run build -- --configuration production
 

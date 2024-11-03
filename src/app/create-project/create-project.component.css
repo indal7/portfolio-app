@@ -1,68 +1,71 @@
-/* Container styling */
-div {
-    max-width: 400px;  /* Limit the width of the form */
-    margin: 20px auto; /* Center the form */
-    padding: 20px;     /* Add some padding */
-    border: 1px solid #ccc; /* Border for the form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    background-color: #f9f9f9; /* Light background color */
+/* Container Styling */
+.create-project-container {
+    max-width: 500px; /* Limit the width for better readability */
+    margin: auto; /* Center the form */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Title styling */
+/* Heading Styling */
 h2 {
-    text-align: center; /* Center the title */
-    margin-bottom: 20px; /* Space below the title */
-    font-size: 24px; /* Title font size */
-    color: #333; /* Darker color for the title */
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-/* Form input styling */
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form elements */
+}
+
 input[type="text"],
 input[type="date"],
-select {
-    width: 100%; /* Full width */
-    padding: 10px; /* Padding for input fields */
-    margin: 10px 0; /* Margin between inputs */
-    border: 1px solid #ccc; /* Border color */
-    border-radius: 4px; /* Rounded corners */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    font-size: 16px; /* Font size for inputs */
-}
-
-/* File input styling */
+select,
 input[type="file"] {
-    margin: 10px 0; /* Margin above and below */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
-/* Button styling */
-button {
-    width: 100%; /* Full width button */
-    padding: 10px; /* Padding for button */
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text color */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px; /* Font size for button */
+/* Button Styling */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+button[type="submit"]:hover {
+    background-color: #0056b3;
 }
 
-/* Responsive styles */
+/* Mobile Responsiveness */
 @media (max-width: 600px) {
-    div {
-        width: 90%; /* Full width on small screens */
-        padding: 10px; /* Less padding */
+    .create-project-container {
+        padding: 15px;
+        width: 90%; /* Takes up more width on smaller screens */
     }
 
     h2 {
-        font-size: 20px; /* Smaller title font size */
+        font-size: 22px;
     }
 
-    button {
-        font-size: 14px; /* Smaller button font size */
+    input[type="text"],
+    input[type="date"],
+    select,
+    button[type="submit"] {
+        font-size: 14px;
     }
 }

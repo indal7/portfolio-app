@@ -1,84 +1,123 @@
-/* Login Container */
+/* Container Styling */
 .login-container {
-  max-width: 400px; /* Limit the width of the login container */
-  margin: 50px auto; /* Center the container with top margin */
-  padding: 20px; /* Padding inside the container */
-  background-color: #fff; /* White background for contrast */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Headings */
-h2 {
-  text-align: center; /* Center the heading */
-  color: #333; /* Dark color for better readability */
-  margin-bottom: 20px; /* Space below the heading */
+.login-container h2,
+.password-reset h3 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-/* Form Labels */
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 label {
-  display: block; /* Make labels block elements */
-  margin-bottom: 5px; /* Space below each label */
-  font-weight: bold; /* Bold font for emphasis */
+  color: #555;
+  font-size: 14px;
 }
 
-/* Input Fields */
+input[type="text"],
 input[type="email"],
-input[type="password"],
-input[type="text"] {
-  width: 100%; /* Full width for inputs */
-  padding: 10px; /* Padding inside inputs */
-  margin-bottom: 15px; /* Space below each input */
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 4px; /* Slightly rounded corners */
-  font-size: 16px; /* Larger font for better readability */
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-/* Input Focus */
-input:focus {
-  border-color: #007bff; /* Change border color on focus */
-  outline: none; /* Remove default outline */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow on focus */
-}
-
-/* Submit Button */
+/* Button Styling */
 button[type="submit"],
 button[type="button"] {
-  width: 100%; /* Full width for buttons */
-  padding: 10px; /* Padding inside buttons */
-  background-color: #007bff; /* Primary button color */
-  color: white; /* White text color */
-  border: none; /* Remove default border */
-  border-radius: 4px; /* Slightly rounded corners */
-  font-size: 16px; /* Larger font for better readability */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
-/* Button Hover Effect */
-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #0056b3;
 }
 
-/* Error Message */
-.error {
-  color: red; /* Red color for error messages */
-  margin: 10px 0; /* Space around the error message */
-  text-align: center; /* Center the error message */
+button[type="button"] {
+  background-color: #6c757d;
 }
 
-/* Reset Password Section */
-.password-reset {
-  margin-top: 20px; /* Space above the reset section */
-  padding: 15px; /* Padding inside the reset section */
-  background-color: #f9f9f9; /* Light background for the reset section */
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 4px; /* Slightly rounded corners */
+button[type="button"]:hover {
+  background-color: #5a6268;
 }
 
-/* Reset Message */
+/* Error and Message Styling */
+.error,
 .message {
-  color: green; /* Green color for success messages */
-  margin-top: 10px; /* Space above the success message */
-  text-align: center; /* Center the message */
+  color: #ff4d4d;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.message {
+  color: #28a745;
+}
+
+/* Password Reset Section Styling */
+.password-reset {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+.password-reset input {
+  margin-top: 10px;
+}
+
+.password-reset button {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Separate Reset and Back to Login Buttons */
+.password-reset button + button {
+  margin-top: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .login-container {
+      padding: 15px;
+      width: 90%;
+  }
+
+  h2,
+  h3 {
+      font-size: 22px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  button[type="submit"],
+  button[type="button"] {
+      font-size: 14px;
+  }
 }

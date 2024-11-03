@@ -1,51 +1,83 @@
+/* Container Styling */
 .update-project-container {
-    max-width: 600px; /* Set maximum width for the form */
-    margin: 0 auto; /* Center the form horizontally */
-    padding: 20px; /* Padding inside the container */
-    font-family: Arial, sans-serif; /* Font family for the form */
-    background-color: #f9f9f9; /* Light background color for contrast */
-    border: 1px solid #ddd; /* Light border around the container */
-    border-radius: 8px; /* Rounded corners for the container */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 500px; /* Adjusted for better mobile visibility */
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.update-project-container h2 {
-    text-align: center; /* Center the heading */
-    color: #333; /* Dark text color for the heading */
-    margin-bottom: 20px; /* Space below the heading */
+/* Heading Styling */
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-.update-project-container form {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack elements vertically */
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form elements */
 }
 
-.update-project-container label {
-    font-weight: bold; /* Bold font for labels */
-    margin: 8px 0 4px; /* Spacing around labels */
+label {
+    color: #555;
+    font-size: 14px;
 }
 
-.update-project-container input,
-.update-project-container textarea,
-.update-project-container select {
-    padding: 10px; /* Padding inside input fields */
-    border-radius: 4px; /* Rounded corners for input fields */
-    border: 1px solid #ddd; /* Light border for input fields */
-    margin-bottom: 15px; /* Space between input fields */
-    font-size: 14px; /* Font size for better readability */
+/* Input and Textarea Styling */
+input[type="text"],
+input[type="url"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
-.update-project-container button {
-    padding: 10px; /* Padding for button */
-    font-size: 16px; /* Font size for button text */
-    background-color: #007bff; /* Primary button color */
-    color: #fff; /* White text color */
-    border: none; /* No border for button */
-    border-radius: 4px; /* Rounded corners for button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth background transition */
+/* Textarea Specific Styling */
+textarea {
+    min-height: 100px; /* Ensures a decent height for the textarea */
 }
 
-.update-project-container button:hover {
-    background-color: #0056b3; /* Darker color on hover */
+/* Button Styling */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .update-project-container {
+        padding: 15px;
+        width: 90%; /* Takes up more width on smaller screens */
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    textarea,
+    select,
+    button[type="submit"] {
+        font-size: 14px;
+    }
 }

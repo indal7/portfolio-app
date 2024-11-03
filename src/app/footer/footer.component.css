@@ -1,33 +1,52 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
 /* Footer Styles */
 .footer {
-    background-color: #333; /* Dark background for the footer */
-    color: #fff; /* White text color */
-    padding: 20px; /* Padding around the footer */
-    text-align: center; /* Center align text */
-    position: relative; /* Position relative for potential absolute positioning of elements */
-    bottom: 0; /* Ensure footer stays at the bottom */
-    width: 100%; /* Full width */
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color for contrast */
+    text-align: center; /* Center align the text */
+    padding: 20px 15px; /* Add padding for breathing space */
+    font-size: 16px; /* Default font size */
+    position: fixed; /* Sticks the footer at the bottom */
+    width: 100%;
+    bottom: 0;
 }
 
 .footer p {
-    margin: 0; /* Remove default margin */
-    font-size: 14px; /* Font size for footer text */
+    margin: 0;
+    padding: 0;
 }
 
-/* Add any additional styles as needed */
-.footer a {
-    color: #fff; /* White color for links */
-    text-decoration: underline; /* Underline links */
-    transition: color 0.3s; /* Smooth transition for hover effect */
+/* Desktop view adjustments */
+@media (min-width: 769px) {
+    .footer {
+        font-size: 16px; /* Regular font size */
+    }
 }
 
-.footer a:hover {
-    color: #f44336; /* Change color on hover for links */
-}
-
-/* Responsive Styles */
+/* Tablet and mobile view adjustments */
 @media (max-width: 768px) {
     .footer {
-        font-size: 12px; /* Smaller font size for mobile */
+        font-size: 14px; /* Slightly smaller font size */
+        padding: 15px 10px; /* Compact padding for smaller screens */
+    }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+    .footer {
+        font-size: 12px; /* Smaller font for compact view */
+        padding: 10px 8px; /* Compact padding */
     }
 }

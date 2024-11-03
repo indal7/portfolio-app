@@ -1,128 +1,188 @@
-/* Profile Container */
+/* Profile Container Styles */
 .profile-container {
-    max-width: 800px; /* Maximum width for the profile container */
-    margin: 50px auto; /* Center the container with top margin */
-    padding: 20px; /* Padding inside the container */
-    background-color: #f7f9fc; /* Light background for a fresh look */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
 }
 
-/* Headings */
-h2 {
-    text-align: center; /* Center the heading */
-    color: #333; /* Dark color for better readability */
-    margin-bottom: 20px; /* Space below the heading */
-    font-size: 28px; /* Larger font size */
+/* Heading Style */
+.profile-container h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
 }
 
-h3 {
-    color: #007bff; /* Primary color for subsections */
-    margin-bottom: 15px; /* Space below the subsection heading */
+/* Button Style */
+.profile-container button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 10px auto;
 }
 
-/* Button Styles */
-button {
-    padding: 10px 15px; /* Padding for buttons */
-    background-color: #007bff; /* Primary color for buttons */
-    color: white; /* White text color */
-    border: none; /* Remove default border */
-    border-radius: 4px; /* Slightly rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+.profile-container button:hover {
+    background-color: #0056b3;
 }
 
-/* Button Hover Effect */
-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-/* Loading Spinner */
+/* Spinner Style */
 .spinner {
-    text-align: center; /* Center text for loading */
-    font-size: 18px; /* Font size for loading message */
-    color: #555; /* Gray color for loading text */
+    color: #007bff;
+    font-weight: bold;
+    text-align: center;
 }
 
-/* Profile Details */
+/* Profile Details Style */
 .profile-details {
-    margin-top: 20px; /* Space above the profile details */
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Profile Picture Wrapper */
+/* Profile Picture Style */
 .profile-picture-wrapper {
-    display: flex; /* Flexbox layout for profile picture */
-    align-items: center; /* Center items vertically */
-    margin-bottom: 20px; /* Space below the profile picture */
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-/* Profile Picture */
 .profile-picture {
-    width: 100px; /* Fixed width for profile picture */
-    height: 100px; /* Fixed height for profile picture */
-    border-radius: 50%; /* Circular profile picture */
-    margin-right: 15px; /* Space between picture and text */
-    border: 2px solid #007bff; /* Border for profile picture */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile-picture-wrapper p {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Profile Field Styles */
+.profile-details p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555;
+}
+
+.profile-details strong {
+    font-weight: 600;
 }
 
 /* Form Styles */
 form {
-    background-color: white; /* White background for form */
-    padding: 20px; /* Padding inside the form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
 }
 
-/* Form Labels */
 label {
-    display: block; /* Block display for labels */
-    margin: 10px 0 5px; /* Margin above and below labels */
-    color: #333; /* Dark color for labels */
+    font-size: 14px;
+    color: #555;
 }
 
-/* Form Inputs */
-input, textarea, select {
-    width: 100%; /* Full width for inputs */
-    padding: 10px; /* Padding for inputs */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 4px; /* Slightly rounded corners */
-    margin-bottom: 15px; /* Space below each input */
-    font-size: 14px; /* Font size for inputs */
+input[type="text"],
+input[type="email"],
+textarea,
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
 /* Tags Container */
 .tags-container {
-    display: flex; /* Flex layout for tags */
-    flex-wrap: wrap; /* Allow tags to wrap */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
 }
 
 .tag {
-    background-color: #007bff; /* Tag background color */
-    color: white; /* Tag text color */
-    border-radius: 3px; /* Rounded corners for tags */
-    padding: 5px 10px; /* Padding inside tags */
-    margin: 5px; /* Space around each tag */
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
 }
 
 .tag button {
-    background: transparent; /* Transparent background for button inside tag */
-    color: white; /* White color for close button */
-    border: none; /* Remove default border */
-    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 5px;
+    background: none;
+    border: none;
+    color: #ff5c5c;
+    font-size: 14px;
+    cursor: pointer;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
+/* Download Resume Link */
+.download-resume {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.download-resume:hover {
+    color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
     .profile-container {
-        padding: 10px; /* Reduced padding on small screens */
+        padding: 15px;
     }
 
-    h2 {
-        font-size: 24px; /* Smaller font size for heading */
+    .profile-container h2 {
+        font-size: 24px;
     }
 
-    button {
-        width: 100%; /* Full width for buttons */
+    .profile-picture {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-container button {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    form {
+        gap: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select,
+    input[type="file"] {
+        font-size: 14px;
+    }
+
+    .tag {
+        font-size: 10px;
     }
 }

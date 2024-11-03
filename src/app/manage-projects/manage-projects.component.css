@@ -1,144 +1,198 @@
 /* Projects Container Styles */
 .projects-container {
-    padding: 20px; /* Padding around the container */
-    background-color: #f9f9f9; /* Light background color for contrast */
-    border-radius: 8px; /* Rounded corners for the container */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Heading Style */
 .projects-container h2 {
-    font-size: 24px; /* Font size for heading */
-    margin-bottom: 20px; /* Spacing below heading */
-    color: #333; /* Dark color for the heading */
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 /* Projects List Styles */
 .projects-list {
-    list-style: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
+    list-style: none;
+    padding: 0;
 }
 
 /* Project Item Styles */
 .project-item {
-    background-color: #fff; /* White background for each project item */
-    margin-bottom: 15px; /* Space between project items */
-    padding: 15px; /* Padding within each project item */
-    border-radius: 5px; /* Slightly rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for project items */
-    transition: transform 0.2s; /* Smooth transition for hover effect */
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
 .project-item:hover {
-    transform: translateY(-2px); /* Lift effect on hover */
+    transform: translateY(-2px);
 }
 
 /* Project Main Info Styles */
 .project-main-info h3 {
-    font-size: 20px; /* Font size for project title */
-    color: #007bff; /* Primary color for project title */
-    margin: 0; /* Remove default margin */
+    font-size: 20px;
+    color: #007bff;
+    margin: 0;
 }
 
 .project-main-info p {
-    font-size: 14px; /* Font size for project description */
-    color: #555; /* Darker gray for description */
+    font-size: 14px;
+    color: #555;
 }
 
 /* Project Link Style */
 .project-link {
-    display: inline-block; /* Make link block for better spacing */
-    margin-top: 10px; /* Space above the link */
-    color: #007bff; /* Primary link color */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s; /* Smooth color change on hover */
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .project-link:hover {
-    color: #0056b3; /* Darker shade on hover */
+    color: #0056b3;
 }
 
 /* Project Details Styles */
 .project-details {
-    margin-top: 10px; /* Space above project details */
-    font-size: 14px; /* Font size for details */
-    color: #666; /* Lighter gray for details */
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
 }
 
 /* Badge Styles */
 .badge {
-    display: inline-block; /* Inline block for badges */
-    padding: 4px 8px; /* Padding for badges */
-    border-radius: 12px; /* Rounded corners for badges */
-    font-size: 12px; /* Font size for badges */
-    color: #fff; /* White text color for badges */
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #fff;
 }
 
-/* Badge Colors */
 .badge-success {
-    background-color: #28a745; /* Green for ongoing */
+    background-color: #28a745;
 }
 
 .badge-danger {
-    background-color: #dc3545; /* Red for on hold */
+    background-color: #dc3545;
 }
 
 /* Project Actions Styles */
 .project-actions {
-    margin-top: 15px; /* Space above actions */
+    margin-top: 15px;
 }
 
-.update-button, .delete-button {
-    padding: 10px 15px; /* Padding for buttons */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners for buttons */
-    cursor: pointer; /* Change cursor to pointer */
-    margin-right: 10px; /* Space between buttons */
-    transition: background-color 0.3s; /* Smooth transition for hover */
+.update-button,
+.delete-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
 }
 
 .update-button {
-    background-color: #007bff; /* Primary color for update button */
-    color: #fff; /* White text for button */
+    background-color: #007bff;
+    color: #fff;
 }
 
 .update-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #0056b3;
 }
 
 .delete-button {
-    background-color: #dc3545; /* Danger color for delete button */
-    color: #fff; /* White text for button */
+    background-color: #dc3545;
+    color: #fff;
 }
 
 .delete-button:hover {
-    background-color: #c82333; /* Darker shade on hover */
+    background-color: #c82333;
 }
 
 /* Add More Project Button Styles */
 .add-more-project {
-    display: inline-block; /* Make it block for spacing */
-    margin-top: 20px; /* Space above button */
-    padding: 10px 20px; /* Padding for button */
-    background-color: #28a745; /* Green color for add button */
-    color: #fff; /* White text */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Change cursor to pointer */
-    transition: background-color 0.3s; /* Smooth transition */
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .add-more-project:hover {
-    background-color: #218838; /* Darker shade on hover */
+    background-color: #218838;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .projects-container {
-        padding: 10px; /* Reduce padding on mobile */
+        padding: 10px;
     }
 
     .project-item {
-        padding: 10px; /* Reduce padding for project items */
+        padding: 10px;
+    }
+
+    .projects-container h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .project-main-info h3 {
+        font-size: 18px;
+    }
+
+    .project-main-info p {
+        font-size: 13px;
+    }
+
+    .project-details {
+        font-size: 13px;
+    }
+
+    .update-button,
+    .delete-button {
+        padding: 8px 12px;
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    .add-more-project {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-container h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .project-main-info h3 {
+        font-size: 16px;
+    }
+
+    .project-main-info p,
+    .project-details,
+    .update-button,
+    .delete-button,
+    .add-more-project {
+        font-size: 12px;
+    }
+
+    .update-button,
+    .delete-button,
+    .add-more-project {
+        padding: 6px 10px;
     }
 }

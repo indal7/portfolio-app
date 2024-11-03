@@ -1,99 +1,103 @@
-/* Centering the register container */
+/* Container Styling */
 .register-container {
-    max-width: 400px; /* Max width for the container */
-    margin: 5% auto; /* Centering with margin */
-    padding: 20px; /* Padding around the container */
-    border: 1px solid #ddd; /* Light border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    background-color: #ffffff; /* White background for better contrast */
-    font-family: Arial, sans-serif; /* Font for the container */
+    max-width: 500px; /* Limit the width for better readability */
+    margin: auto; /* Center the form */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling the form elements */
-.register-container h2 {
-    text-align: center; /* Center the heading */
-    color: #333; /* Dark color for the title */
-    font-size: 28px; /* Increased font size for better visibility */
-    margin-bottom: 20px; /* Space below the title */
+/* Heading Styling */
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-/* Label styling */
-.register-container label {
-    display: block; /* Block display for labels */
-    margin-bottom: 5px; /* Space below each label */
-    color: #555; /* Medium gray for labels */
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form elements */
 }
 
-/* Input field styling */
-.register-container input[type="email"],
-.register-container input[type="text"],
-.register-container input[type="password"] {
-    width: 100%; /* Full width */
-    padding: 10px; /* Padding inside input fields */
-    margin-bottom: 15px; /* Space below input fields */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 16px; /* Font size for input fields */
-    box-sizing: border-box; /* Include padding and border in total width */
+label {
+    font-size: 14px;
+    color: #555;
 }
 
-/* Input focus effect */
-.register-container input[type="email"]:focus,
-.register-container input[type="text"]:focus,
-.register-container input[type="password"]:focus {
-    border-color: #007bff; /* Blue border on focus */
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Blue shadow on focus */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
-/* Button styling */
-.register-container button[type="submit"] {
-    width: 100%; /* Full width for the submit button */
-    padding: 10px; /* Padding inside button */
-    background-color: #007bff; /* Blue background */
-    color: #fff; /* White text */
-    border: none; /* No border */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 16px; /* Font size for button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth background transition */
+/* Button Styling */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-/* Submit button hover effect */
-.register-container button[type="submit"]:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+button[type="submit"]:hover {
+    background-color: #0056b3;
 }
 
-/* Link button styling */
-button[type="button"] {
-    display: block; /* Block display for link button */
-    margin: 10px auto; /* Center link button */
-    background: none; /* No background */
-    color: #007bff; /* Blue text color */
-    border: none; /* No border */
-    font-size: 14px; /* Font size for link button */
-    cursor: pointer; /* Pointer cursor on hover */
-}
-
-/* Link button hover effect */
-button[type="button"]:hover {
-    color: #0056b3; /* Darker blue on hover */
-    text-decoration: underline; /* Underline on hover */
-}
-
-/* Error message styling */
+/* Message Styling */
 .error {
-    color: #d9534f; /* Red color for error messages */
-    font-size: 14px; /* Font size for error messages */
-    margin-top: 10px; /* Space above error messages */
-    text-align: center; /* Center error messages */
+    color: red;
+    text-align: center;
+    margin-top: 10px;
 }
 
-/* Success message styling */
 .success {
-    color: #5cb85c; /* Green color for success messages */
-    font-size: 14px; /* Font size for success messages */
-    margin-top: 10px; /* Space above success messages */
-    text-align: center; /* Center success messages */
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .register-container {
+        padding: 15px;
+        width: 90%; /* Takes up more width on smaller screens */
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    button[type="submit"] {
+        font-size: 14px;
+    }
+}
+
+/* Additional button styling for the login redirect */
+.register-container button[type="button"] {
+    margin-top: 15px;
+    background: transparent;
+    color: #007bff;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+}
+
+.register-container button[type="button"]:hover {
+    text-decoration: underline;
 }

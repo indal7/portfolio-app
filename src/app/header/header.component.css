@@ -7,6 +7,7 @@
 
 body {
     font-family: Arial, sans-serif; /* You can change this to your preferred font */
+    background-color: #f4f4f4; /* Light background for contrast */
 }
 
 /* Header Styles */
@@ -14,17 +15,26 @@ body {
     background-color: #333; /* Dark background for the header */
     color: #fff; /* White text color */
     padding: 15px 20px; /* Padding around the header */
+    position: sticky; /* Fix header at top */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
 }
 
 .header nav {
     max-width: 1200px; /* Limit the maximum width of the navigation */
     margin: 0 auto; /* Center the navigation */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/* Navigation List */
 .header ul {
     list-style: none; /* Remove bullet points */
     display: flex; /* Flexbox for horizontal layout */
-    justify-content: space-between; /* Space out items */
+    align-items: center;
+    gap: 20px;
 }
 
 .header li {
@@ -37,6 +47,7 @@ body {
     padding: 10px 15px; /* Padding around the links */
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s, color 0.3s; /* Smooth transitions for hover effects */
+    font-weight: 500;
 }
 
 .header a:hover {
@@ -56,6 +67,7 @@ body {
 
 .header .user-profile span {
     margin-right: 10px; /* Space between name and email */
+    font-size: 0.9em;
 }
 
 .header button {
@@ -66,20 +78,67 @@ body {
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s; /* Smooth transition */
+    font-weight: 500;
 }
 
 .header button:hover {
     background-color: #c62828; /* Darker red on hover */
 }
 
-/* Responsive Styles */
+/* Responsive Styles for Tablets and Smaller Screens */
 @media (max-width: 768px) {
+    .header nav {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+    }
+
     .header ul {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        align-items: center; /* Center align items */
+        flex-direction: column; /* Stack menu items */
+        align-items: center;
+        gap: 10px;
+        width: 100%;
     }
 
     .header li {
-        margin-bottom: 10px; /* Space between vertical items */
+        width: 100%;
+        text-align: center;
     }
+
+    .header button {
+        width: 80%; /* Full-width buttons on smaller screens */
+        margin-top: 10px;
+    }
+}
+
+/* Mobile-Specific Styles */
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 15px;
+    }
+
+    .header a {
+        font-size: 14px; /* Smaller font size for links */
+        padding: 8px 10px; /* Compact padding for links */
+    }
+
+    .header .user-profile span {
+        font-size: 0.85em; /* Slightly smaller font for user info */
+    }
+
+    .header button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+/* Hover and Active State for Better Style */
+.header a:hover,
+.header a:focus {
+    background-color: #444;
+    color: #fff;
+}
+
+.header button:hover,
+.header button:focus {
+    background-color: #d32f2f;
 }

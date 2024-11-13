@@ -1,68 +1,60 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Project, ApiResponse } from '../project.model';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProjectService } from '../services/project.service';
 import { ToasterService } from '../toaster.service';
-import { environment } from 'src/environments/environment';
-
+import { Project } from '../project.model';
 
 @Component({
   selector: 'app-edit-project',
   templateUrl: './edit-project.component.html',
   styleUrls: ['./edit-project.component.css']
 })
-export class EditProjectComponent {
-  // project: Project = { id: '', title: '', description: '' ,link:'', updated_on:'', email:'', resumeFile:null , project_status:''}
-  // @Input() apiUrl: string;
-  // @Output() projectUpdated = new EventEmitter<void>();
-
-  project: Project = { 
-    id: '', 
-    title: '', 
-    description: '', 
-    link: '', 
-    updated_on: '', 
-    email: '', 
-    resumeFile: null, 
-    project_status: '',
-    tags:[] // Ensure this matches your Project interface
+export class EditProjectComponent implements OnInit {
+  project: Project = {
+    id: '',
+    title: '',
+    description: '',
+    link: '',
+    project_status: '', // Ensure all necessary fields are present
+    tags: [],
+    updated_on: '',
+    email: '',
+    resumeFile: null,
+    technologies: '', // Added technologies
+    dateCompleted: '' // Added dateCompleted
   };
-  apiUrl = environment.apiUrl;
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router : Router,
+
+  constructor(
+    private projectService: ProjectService,
+    private route: ActivatedRoute,
+    private router: Router,
     private toasterService: ToasterService
   ) {}
 
   ngOnInit(): void {
     const projectId = this.route.snapshot.paramMap.get('id');
     if (projectId) {
-      this.fetchProject(projectId);
+      this.projectService.getProjectById(projectId).subscribe(
+        response => {
+          if (response.success) {
+            // Ensure response.data contains all required fields
+            this.project = response.data;
+          } else {
+            this.toasterService.error('Error fetching project');
+          }
+        },
+        error => this.toasterService.error('Error fetching project')
+      );
     }
   }
 
-  fetchProject(id: string): void {
-    this.http.get<any>(`${this.apiUrl}/projects/${id}`).subscribe(
-      data => {
-        if (data.success) {
-          this.project = data.data; // Ensure this matches your response structure
-        } else {
-          console.error('Error fetching project:', data.message);
-        }
-      },
-      error => console.error('Error fetching project:', error)
-    );
-  }
-
   saveProject(): void {
-    this.http.put(`${this.apiUrl}/projects/${this.project.id}`, this.project).subscribe(
+    this.projectService.updateProject(this.project).subscribe(
       () => {
         this.toasterService.success('Project updated successfully!');
         this.router.navigate(['/projects-list']);
       },
-      error => {
-        console.error('Error updating project:', error);
-        this.toasterService.error('Error updating project. Please try again.');
-      }
+      error => this.toasterService.error('Error updating project')
     );
   }
 }

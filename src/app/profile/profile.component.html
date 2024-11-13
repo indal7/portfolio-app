@@ -12,7 +12,7 @@
             <h3>{{ editMode ? 'Update Profile' : 'Profile Details' }}</h3>
 
             <div *ngIf="!editMode">
-                <!-- Existing profile details display -->
+                <!-- Display existing profile details -->
                 <div class="profile-picture-wrapper">
                     <img 
                         [src]="userProfile.profile_photo || 'assets/default-profile.png'" 
@@ -36,7 +36,7 @@
             </div>
 
             <form *ngIf="editMode" (ngSubmit)="updateProfile()" #profileForm="ngForm">
-                <!-- Existing form for updating profile -->
+                <!-- Profile update form -->
                 <label for="username">Username:</label>
                 <input id="username" [(ngModel)]="userProfile.username" name="username" required>
 
@@ -48,12 +48,12 @@
 
                 <label for="contactType">Contact Type:</label>
                 <select id="contactType" [(ngModel)]="userProfile.contact_info.type" name="contactType" required>
-                  <option value="email">Email</option>
-                  <option value="phone">Phone</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
                 </select>
-                
+
                 <label for="contactValue">Contact Value:</label>
-                <input id="contactValue" [(ngModel)]="userProfile.contact_info.value" name="contactValue" required placeholder="Enter contact value">                
+                <input id="contactValue" [(ngModel)]="userProfile.contact_info.value" name="contactValue" required placeholder="Enter contact value">
 
                 <label for="skills">Skills:</label>
                 <input id="skills" [(ngModel)]="userProfile.skills" name="skills">
@@ -67,11 +67,11 @@
                 </div>
 
                 <label for="profilePicture">Profile Picture:</label>
-                <input type="file" (change)="onProfilePhotoChange($event)" accept="image/*">
+                <input type="file" id="profilePicture" (change)="onProfilePhotoChange($event)" accept="image/*">
                 <p *ngIf="userProfile.profile_photo">Selected: {{ extractFileName(userProfile.profile_photo) }}</p>
                 
                 <label for="resume">Upload Resume:</label>
-                <input type="file" (change)="onResumeChange($event)" accept=".pdf,.doc,.docx">
+                <input type="file" id="resume" (change)="onResumeChange($event)" accept=".pdf,.doc,.docx">
                 <p *ngIf="userProfile.resume">Selected: {{ extractFileName(userProfile.resume) }}</p>
                 
                 <button type="submit">Update Profile</button>
@@ -96,9 +96,9 @@
                     <option value="phone">Phone</option>
                 </select>
 
-                <label for="newContactValue">Contact Value:</label>
-                <input id="newContactValue" [(ngModel)]="userProfile.contact_info.value" name="newContactValue" required placeholder="Enter contact value">
-
+                <label for="contactValue">Contact Value:</label>
+                <input id="contactValue" [(ngModel)]="userProfile.contact_info.value" name="contactValue" required placeholder="Enter contact value">
+                
                 <label for="newSkills">Skills:</label>
                 <input id="newSkills" [(ngModel)]="userProfile.skills" name="newSkills">
 

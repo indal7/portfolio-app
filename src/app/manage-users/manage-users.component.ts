@@ -1,7 +1,7 @@
+// src/app/components/manage-users/manage-users.component.ts
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ToasterService } from '../toaster.service';
-import { environment } from 'src/environments/environment';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-manage-users',
@@ -10,10 +10,9 @@ import { environment } from 'src/environments/environment';
 })
 export class ManageUsersComponent implements OnInit {
   users: any[] = [];
-  apiUrl = environment.apiUrl;
 
   constructor(
-    private http: HttpClient,
+    private userService: UserService,
     private toasterService: ToasterService
   ) {}
 
@@ -21,8 +20,9 @@ export class ManageUsersComponent implements OnInit {
     this.getUsers();
   }
 
+  // Fetch users from the backend
   getUsers(): void {
-    this.http.get<any>(`${this.apiUrl}/fetch_all_users`).subscribe(
+    this.userService.getUsers().subscribe(
       response => {
         if (response.success) {
           // Initialize users with roleChanged and originalRole properties
@@ -43,8 +43,9 @@ export class ManageUsersComponent implements OnInit {
     );
   }
 
+  // Update user role
   updateUserRole(userEmail: string, newRole: string): void {
-    this.http.put<any>(`${this.apiUrl}/update_user_role`, { role: newRole, email: userEmail }).subscribe(
+    this.userService.updateUserRole(userEmail, newRole).subscribe(
       response => {
         if (response.success) {
           this.toasterService.success('User role updated successfully!');

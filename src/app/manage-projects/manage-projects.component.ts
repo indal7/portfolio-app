@@ -1,10 +1,9 @@
 // src/app/manage-projects/manage-projects.component.ts
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Project, ApiResponse } from '../project.model';
 import { Router } from '@angular/router';
+import { ProjectService } from '../services/project.service';
 import { ToasterService } from '../toaster.service';
-import { environment } from 'src/environments/environment';
+import { Project } from '../project.model';
 
 @Component({
   selector: 'app-manage-projects',
@@ -13,40 +12,32 @@ import { environment } from 'src/environments/environment';
 })
 export class ManageProjectsComponent implements OnInit {
   projects: Project[] = [];
-  apiUrl = environment.apiUrl;
 
   constructor(
-    private http: HttpClient,
+    private projectService: ProjectService,
     private router: Router,
     private toasterService: ToasterService
   ) {}
 
   ngOnInit(): void {
-    this.getProjects();
+    this.loadProjects();
   }
 
-  getProjects(): void {
+  loadProjects(): void {
     const email = localStorage.getItem('userEmail');
-    let params = new HttpParams();
-
     if (email) {
-      params = params.set('email', email);
+      this.projectService.getAllProjects(email).subscribe(
+        response => {
+          if (response.success) {
+            this.projects = Array.isArray(response.data) ? response.data : (response.data ? [response.data] : []);
+            this.toasterService.success('Projects loaded successfully!');
+          } else {
+            this.toasterService.error('Error loading projects');
+          }
+        },
+        error => this.toasterService.error('Failed to load projects')
+      );
     }
-
-    this.http.get<ApiResponse>(`${this.apiUrl}/projects`, { params }).subscribe(
-      response => {
-        if (response.success) {
-          this.projects = response.data || [];
-          this.toasterService.success('Projects loaded successfully!');
-        } else {
-          this.toasterService.error(response.message || 'Error fetching projects.');
-        }
-      },
-      error => {
-        console.error('Error fetching projects:', error);
-        this.toasterService.error('Failed to load projects. Please try again.');
-      }
-    );
   }
 
   updateProject(project: Project): void {
@@ -55,28 +46,19 @@ export class ManageProjectsComponent implements OnInit {
 
   deleteProject(id: string): void {
     const email = localStorage.getItem('userEmail');
-
-    if (!email) {
-      this.toasterService.error('Email is missing');
-      return;
+    if (email) {
+      this.projectService.deleteProject(id, email).subscribe(
+        response => {
+          if (response.success) {
+            this.toasterService.success('Project deleted successfully!');
+            this.loadProjects();
+          } else {
+            this.toasterService.error('Error deleting project');
+          }
+        },
+        error => this.toasterService.error('Failed to delete project')
+      );
     }
-
-    let params = new HttpParams().set('email', email);
-
-    this.http.delete<ApiResponse>(`${this.apiUrl}/projects/${id}`, { params }).subscribe(
-      response => {
-        if (response.success) {
-          this.toasterService.success('Project deleted successfully!');
-          this.getProjects(); // Refresh list after deleting
-        } else {
-          this.toasterService.error(response.message || 'Error deleting project.');
-        }
-      },
-      error => {
-        console.error('Error deleting project:', error);
-        this.toasterService.error('Failed to delete project. Please try again.');
-      }
-    );
   }
 
   addMoreProject(): void {

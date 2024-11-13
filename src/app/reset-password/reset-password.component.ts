@@ -1,9 +1,8 @@
+// src/app/reset-password/reset-password.component.ts
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToasterService } from '../toaster.service';
-import { environment } from 'src/environments/environment';
-
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -15,10 +14,13 @@ export class ResetPasswordComponent implements OnInit {
   confirmNewPassword: string = '';
   resetErrorMessage: string = '';
   resetSuccessMessage: string = '';
-  apiUrl = environment.apiUrl;
   resetToken: string | null = null; // This should be set from the URL or sent via email
 
-  constructor(private http: HttpClient, private router: Router, private toasterService: ToasterService) { }
+  constructor(
+    private userService: UserService, // Inject PasswordService
+    private router: Router,
+    private toasterService: ToasterService
+  ) { }
 
   ngOnInit() {
     // Get the reset token from the URL (if needed)
@@ -37,12 +39,14 @@ export class ResetPasswordComponent implements OnInit {
       return;
     }
 
+    // Prepare reset data
     const resetData = {
       newPassword: this.newPassword,
-      token: this.resetToken // Include the reset token if required by your backend
+      token: this.resetToken
     };
 
-    this.http.post<any>(`${this.apiUrl}/reset_password`, resetData).subscribe(
+    // Call PasswordService to reset the password
+    this.userService.resetPassword(resetData).subscribe(
       response => {
         if (response.success) {
           this.resetSuccessMessage = 'Your password has been reset successfully!';

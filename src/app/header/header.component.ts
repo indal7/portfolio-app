@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { jwtDecode } from 'jwt-decode';
-
-interface TokenPayload {
-  name: string;
-  email?: string;
-  exp?: number;
-  role: string;
-}
 
 @Component({
   selector: 'app-header',
@@ -25,7 +17,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     // Subscribe to auth status changes
-    // localStorage.removeItem('authToken');
     this.authService.authStatus$.subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
       if (isLoggedIn) {
@@ -36,30 +27,33 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  updateUserInfo(): void {
-    const token = localStorage.getItem('authToken');
-    if (token) {
-      const decoded: TokenPayload = jwtDecode(token);
-
-      this.userName = decoded.name;
-      this.userEmail = decoded.email;
-      this.userRole = decoded.role || '';
+  // Update user information from AuthService
+  private updateUserInfo(): void {
+    const userInfo = this.authService.getUserInfo();
+    if (userInfo) {
+      this.userName = userInfo.name;
+      this.userEmail = userInfo.email;
+      this.userRole = userInfo.role;
     } else {
-      console.warn('No token found'); // Warning if no token is present
+      console.warn('No user information available'); // Warning if no user info is present
     }
   }
 
+  // Clear user information when logged out
+  private clearUserInfo(): void {
+    this.userName = null;
+    this.userEmail = null;
+    this.userRole = '';
+  }
+
+  // Navigate to the login page
   navigateToLogin(event: Event): void {
     event.preventDefault();
     console.error('User not logged in. Redirecting to login page.');
     this.router.navigate(['/login']); // Redirect to the login page
-}
-
-  clearUserInfo(): void {
-    this.userName = null;
-    this.userEmail = null;
   }
 
+  // Log out the user and navigate to login page
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);

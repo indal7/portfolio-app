@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToasterService } from '../toaster.service';
 import { AuthService } from '../auth.service';
@@ -14,7 +14,7 @@ interface ApiResponse {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   email: string = '';
   password: string = '';
   resetEmail: string = '';
@@ -30,6 +30,13 @@ export class LoginComponent {
     private cdr: ChangeDetectorRef
   ) {}
 
+  ngOnInit(): void {
+    // Redirect to profile page if already logged in
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/profile']);
+    }
+  }
+
   login(): void {
     const loginData = { email: this.email, password: this.password };
   
@@ -37,7 +44,7 @@ export class LoginComponent {
       (response: ApiResponse) => {
         if (response.success) {
           this.toasterService.success('Login successful!');
-          this.router.navigate(['/projects-list']);
+          this.router.navigate(['/profile']);
         } else {
           this.toasterService.error('Login failed. No token received.');
         }
@@ -58,7 +65,6 @@ export class LoginComponent {
     this.resetMessage = ''; 
     this.cdr.detectChanges(); 
   }
-  
 
   requestPasswordReset(): void {
     if (!this.resetEmail) {

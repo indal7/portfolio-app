@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { jwtDecode } from 'jwt-decode';
 import { ToasterService } from '../toaster.service';
+import { UserService } from '../services/user.service';
 
 export interface TokenPayload {
   email: string;
@@ -56,7 +56,10 @@ export class ProfileComponent implements OnInit {
 
   @ViewChild('fileInput') fileInput!: ElementRef;
 
-  constructor(private authService: AuthService, private toasterService: ToasterService) {}
+  constructor(
+    private userService: UserService, // Inject UserService
+    private toasterService: ToasterService
+  ) {}
 
   ngOnInit() {
     const token = localStorage.getItem('authToken');
@@ -67,8 +70,9 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  // Call the UserService to fetch user profile
   getUserProfile(email: string): void {
-    this.authService.getUserProfile(email).subscribe(
+    this.userService.getUserProfile(email).subscribe(
       (response: ApiResponse<UserProfile>) => {
         this.isLoading = false;
         if (response.success && response.data) {
@@ -77,7 +81,6 @@ export class ProfileComponent implements OnInit {
             type: this.userProfile.contact_info.type,
             value: this.userProfile.contact_info.value,
           };
-
           this.errorFetchingData = false;
         } else {
           this.handleProfileFetchError(response.message);
@@ -99,7 +102,7 @@ export class ProfileComponent implements OnInit {
   async updateProfile() {
     const formData = await this.buildFormData();
 
-    this.authService.updateUserProfile(formData).subscribe(
+    this.userService.updateUserProfile(formData).subscribe(
       (response: ApiResponse<any>) => {
         if (response.success) {
           this.toasterService.success('Profile updated successfully!');
@@ -219,8 +222,7 @@ export class ProfileComponent implements OnInit {
     this.userProfile.contact_info[index] = { type, value };
   }
 
-createProfile() { 
+  createProfile() {
     this.updateProfile();
   }
-
 }

@@ -1,25 +1,24 @@
 <div>
-    <h2>Create New Project</h2>
-    <form (submit)="addProject()">
-      <input type="text" placeholder="Title" [(ngModel)]="newProject.title" name="title" required>
-      <input type="text" placeholder="Description" [(ngModel)]="newProject.description" name="description" required>
-      <input type="text" placeholder="Link" [(ngModel)]="newProject.link" name="link" required>
-      
-      <!-- New fields added below -->
-      <input type="text" placeholder="Technologies Used" [(ngModel)]="newProject.technologies" name="technologies" required>
-      <input type="date" placeholder="Date Completed" [(ngModel)]="newProject.dateCompleted" name="dateCompleted" required>
-      
-      <select [(ngModel)]="newProject.projectStatus" name="projectStatus" required>
-        <option value="" disabled selected>Select Project Status</option>
-        <option value="Ongoing">Ongoing</option>
-        <option value="Completed">Completed</option>
-        <option value="On Hold">On Hold</option>
-      </select>
-      
-      <!-- Optional Resume File Upload -->
-      <input type="file" (change)="newProject.resumeFile = $event.target.files[0]" name="resume">
-      
-      <button type="submit">Add Project</button>
-    </form>
-  </div>
-  
+  <h2>Create New Project</h2>
+  <form (submit)="addProject()">
+    <input type="text" placeholder="Title" [(ngModel)]="newProject.title" name="title" required>
+    <input type="text" placeholder="Description" [(ngModel)]="newProject.description" name="description" required>
+    <input type="text" placeholder="Link" [(ngModel)]="newProject.link" name="link" required>
+    
+    <!-- New fields added below -->
+    <input type="text" placeholder="Technologies Used" [(ngModel)]="newProject.technologies" name="technologies" required>
+    <input type="date" placeholder="Date Completed" [(ngModel)]="newProject.dateCompleted" name="dateCompleted" required>
+    
+    <select [(ngModel)]="newProject.project_status" name="projectStatus" required>
+      <option value="" disabled selected>Select Project Status</option>
+      <option value="Ongoing">Ongoing</option>
+      <option value="Completed">Completed</option>
+      <option value="On Hold">On Hold</option>
+    </select>
+    
+    <!-- Optional Resume File Upload -->
+    <input type="file" (change)="newProject.resumeFile = $event.target.files[0]" name="resume">
+    
+    <button type="submit">Add Project</button>
+  </form>
+</div>

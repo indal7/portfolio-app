@@ -1,10 +1,8 @@
+// src/app/register/register.component.ts
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToasterService } from '../toaster.service';
-import { environment } from 'src/environments/environment';
-
-
+import { UserService } from '../services/user.service'; // Inject UserService
 
 @Component({
   selector: 'app-register',
@@ -18,9 +16,12 @@ export class RegisterComponent {
   errorMessage: string = '';
   successMessage: string = '';
   name: string = '';
-  apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient, private router: Router, private toasterService: ToasterService) {}
+  constructor(
+    private router: Router,
+    private toasterService: ToasterService,
+    private userService: UserService // Inject UserService
+  ) {}
 
   register(): void {
     // Clear previous messages before new validation
@@ -37,14 +38,15 @@ export class RegisterComponent {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(this.email)) {
       this.errorMessage = 'Please enter a valid email address.';
+      this.toasterService.error(this.errorMessage);
       return;
     }
   
     // Prepare registration data
     const registerData = { email: this.email, password: this.password, name: this.name };
   
-    // Send registration request
-    this.http.post<any>(`${this.apiUrl}/register`, registerData).subscribe(
+    // Send registration request through UserService
+    this.userService.registerUser(registerData).subscribe(
       response => {
         if (response.success) {
           this.successMessage = 'Registration successful!';
@@ -62,7 +64,6 @@ export class RegisterComponent {
       }
     );
   }
-  
   
   clearMessages() {
     setTimeout(() => {

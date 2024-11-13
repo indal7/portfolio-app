@@ -1,26 +1,9 @@
+// src/app/create-project/create-project.component.ts
 import { Component, Output, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ProjectService } from '../services/project.service';
 import { ToasterService } from '../toaster.service';
-import { environment } from 'src/environments/environment';
-
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  link: string;
-  technologies: string;
-  dateCompleted: string;
-  projectStatus: string;
-  email: string;
-  resumeFile: File | null;
-}
-
-interface ApiResponse {
-  success: boolean;
-  message?: string;
-}
+import { Project } from '../project.model';
 
 @Component({
   selector: 'app-create-project',
@@ -33,59 +16,48 @@ export class CreateProjectComponent {
     title: '',
     description: '',
     link: '',
-    technologies: '',
-    dateCompleted: '',
-    projectStatus: '',
+    project_status: '', // corrected from projectStatus
+    tags: [], // changed from technologies (if needed, you can keep technologies as a separate field)
+    updated_on: '',
     email: '',
-    resumeFile: null
+    resumeFile: null,
+    technologies: '',
+    dateCompleted: ''
   };
-  apiUrl = environment.apiUrl;
-
+    
   @Output() projectCreated = new EventEmitter<void>();
 
-  constructor(private http: HttpClient, private router: Router, private toasterService: ToasterService) {}
+  constructor(
+    private projectService: ProjectService,
+    private router: Router,
+    private toasterService: ToasterService
+  ) {}
 
   addProject(): void {
-    if (!this.newProject.title || !this.newProject.description || !this.newProject.link || !this.newProject.technologies || !this.newProject.dateCompleted || !this.newProject.projectStatus) {
-      console.error('Missing required fields.');
+    if (!this.isProjectDataValid()) {
+      this.toasterService.error('All fields are required.');
       return;
     }
-  
-    const payload = {
-      id: Date.now().toString(),
-      title: this.newProject.title,
-      description: this.newProject.description,
-      link: this.newProject.link,
-      technologies: this.newProject.technologies,
-      dateCompleted: this.newProject.dateCompleted,
-      projectStatus: this.newProject.projectStatus,
-      updated_on: new Date().toISOString(),
-      email: localStorage.getItem('userEmail') || '',
-    };
-  
-    this.http.post<ApiResponse>(`${this.apiUrl}/projects`, payload, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).subscribe(
+
+    const projectData = { ...this.newProject, id: Date.now().toString(), updated_on: new Date().toISOString(), email: localStorage.getItem('userEmail') || '' };
+
+    this.projectService.createProject(projectData).subscribe(
       response => {
         if (response.success) {
-          this.toasterService.success(`Project added successfully: ${response.message}`);
-          this.router.navigate(['/projects-list']);
+          this.toasterService.success('Project added successfully!');
           this.projectCreated.emit();
-          this.resetForm();
+          this.router.navigate(['/projects-list']);
         } else {
-          console.error('Error adding project:', response.message);
+          this.toasterService.error('Error adding project');
         }
       },
-      error => {
-        console.error('Error adding project:', error);
-        this.toasterService.error(`Error adding project: ${error}`);
-      }
+      error => this.toasterService.error('Error adding project')
     );
   }
 
-  private resetForm(): void {
-    this.newProject = { id: '', title: '', description: '', link: '', technologies: '', dateCompleted: '', projectStatus: '', email: '', resumeFile: null };
+  private isProjectDataValid(): boolean {
+    const { title, description, link, project_status, technologies, dateCompleted } = this.newProject;
+    return !!(title && description && link && project_status && technologies && dateCompleted);
   }
+  
 }

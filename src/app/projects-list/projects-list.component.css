@@ -10,82 +10,108 @@
   text-align: center;
   color: #333;
   margin-bottom: 20px;
+  font-size: 1.8em;
 }
 
 /* Project list styles */
 .projects-list {
   list-style: none;
   padding: 0;
-  max-height: 650px; /* Set a maximum height for scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
-  border: 1px solid #ddd; /* Optional: Add a border for better visibility */
-  border-radius: 8px; /* Optional: Rounded corners */
-  margin: 0; /* Remove default margin */
+  max-height: 650px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 0;
 }
 
-/* Ensure there is no padding in the list items */
+/* Project items styling */
 .project-item {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
-  margin-bottom: 20px; /* Space between items */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
-  transition: transform 0.2s ease;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-item:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* Project info sections */
-.project-main-info {
-  margin-bottom: 10px;
-}
-
 .project-main-info h3 {
-  font-size: 20px;
+  font-size: 1.25em;
   color: #007bff;
   margin: 0;
 }
 
 .project-main-info p {
-  margin: 5px 0;
+  margin: 5px 0 10px;
   color: #555;
+  font-size: 0.95em;
 }
 
 .project-link {
   color: #007bff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 0.9em;
+  font-weight: bold;
 }
 
 .project-link:hover {
   text-decoration: underline;
+  color: #0056b3;
 }
 
-/* Project details styling */
-.project-details {
-  font-size: 14px;
-  color: #666;
+/* Project badge styles */
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.85em;
+  color: #fff;
+  text-align: center;
   margin: 10px 0;
+  transition: background-color 0.3s ease;
 }
 
-.project-details p {
-  margin: 3px 0;
+.badge-success {
+  background-color: #28a745;
 }
 
-/* Action buttons */
+.badge-danger {
+  background-color: #dc3545;
+}
+
+.badge-complete {
+  background-color: #007bff;
+}
+
+.badge-cancelled {
+  background-color: #6c757d;
+}
+
+/* Timestamp styling */
+.project-updated-on {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Action buttons styling */
 .project-actions {
   display: flex;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .update-button,
 .delete-button {
-  padding: 8px 12px;
-  font-size: 14px;
+  padding: 8px 16px;
+  font-size: 0.9em;
   border-radius: 4px;
   border: none;
   cursor: pointer;
@@ -110,64 +136,52 @@
   background-color: #c9302c;
 }
 
-/* Responsive styling for smaller screens */
+/* Add project button */
+.add-more-project {
+  background-color: #28a745;
+  color: white;
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-more-project:hover {
+  background-color: #218838;
+}
+
+/* Responsive adjustments */
 @media (max-width: 600px) {
   .project-actions {
-      flex-direction: column;
-      gap: 8px;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .project-item {
-      padding: 10px;
+    padding: 10px;
   }
 
   .project-main-info h3 {
-      font-size: 18px;
+    font-size: 1.1em;
   }
 
   .project-link,
-  .project-details p {
-      font-size: 13px;
+  .project-updated-on {
+    font-size: 0.85em;
   }
 
   .update-button,
   .delete-button {
-      padding: 6px 10px;
-      font-size: 13px;
+    padding: 6px 10px;
+    font-size: 0.85em;
   }
-}
 
-.add-more-project {
-  background-color: #28a745; /* Green for add project button */
-  color: white; /* Text color */
-  margin-top: 20px; /* Space above the button */
-  width: 100%; /* Full width */
-  padding: 10px; /* Inner padding */
-}
-
-.badge {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
-  margin: 0.5rem 0; /* Margin for separation */
-  transition: background-color 0.3s ease;
-}
-
-.badge-success {
-  background-color: #28a745; /* Green for Ongoing */
-}
-
-.badge-danger {
-  background-color: #dc3545; /* Red for On Hold */
-}
-
-.badge-complete {
-  background-color: #007bff; /* Blue for Completed */
-}
-
-.badge-cancelled {
-  background-color: #6c757d; /* Grey for Cancelled */
+  .add-more-project {
+    font-size: 0.9em;
+    padding: 10px;
+  }
 }

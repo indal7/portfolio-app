@@ -6,24 +6,24 @@
 }
 
 body {
-    font-family: Arial, sans-serif; /* You can change this to your preferred font */
-    background-color: #f4f4f4; /* Light background for contrast */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
 
 /* Header Styles */
 .header {
-    background-color: #333; /* Dark background for the header */
-    color: #fff; /* White text color */
-    padding: 15px 20px; /* Padding around the header */
-    position: sticky; /* Fix header at top */
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px;
+    position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header nav {
-    max-width: 1200px; /* Limit the maximum width of the navigation */
-    margin: 0 auto; /* Center the navigation */
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,69 +31,73 @@ body {
 
 /* Navigation List */
 .header ul {
-    list-style: none; /* Remove bullet points */
-    display: flex; /* Flexbox for horizontal layout */
+    list-style: none;
+    display: flex;
     align-items: center;
     gap: 20px;
 }
 
 .header li {
-    position: relative; /* For positioning child elements */
+    position: relative;
 }
 
+/* Links Styling */
 .header a {
-    text-decoration: none; /* Remove underline */
-    color: #fff; /* White text color */
-    padding: 10px 15px; /* Padding around the links */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transitions for hover effects */
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
     font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .header a:hover {
-    background-color: #555; /* Darker background on hover */
+    background-color: #555;
 }
 
 .header a.disabled {
-    color: rgba(255, 255, 255, 0.5); /* Light color for disabled links */
-    pointer-events: none; /* Disable click events */
-    cursor: not-allowed; /* Change cursor style */
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    cursor: not-allowed;
 }
 
+/* User Profile Section */
 .header .user-profile {
-    display: flex; /* Flexbox for user profile */
-    align-items: center; /* Center align items vertically */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .header .user-profile span {
-    margin-right: 10px; /* Space between name and email */
     font-size: 0.9em;
+    color: #ddd;
 }
 
+/* Logout Button */
 .header button {
-    background-color: #f44336; /* Red background for the logout button */
-    color: white; /* White text color */
-    border: none; /* No border */
-    padding: 8px 12px; /* Padding around the button */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
     font-weight: 500;
 }
 
 .header button:hover {
-    background-color: #c62828; /* Darker red on hover */
+    background-color: #c62828;
 }
 
 /* Responsive Styles for Tablets and Smaller Screens */
 @media (max-width: 768px) {
     .header nav {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column;
         align-items: center;
     }
 
     .header ul {
-        flex-direction: column; /* Stack menu items */
+        flex-direction: column;
         align-items: center;
         gap: 10px;
         width: 100%;
@@ -105,7 +109,7 @@ body {
     }
 
     .header button {
-        width: 80%; /* Full-width buttons on smaller screens */
+        width: 80%;
         margin-top: 10px;
     }
 }
@@ -117,12 +121,12 @@ body {
     }
 
     .header a {
-        font-size: 14px; /* Smaller font size for links */
-        padding: 8px 10px; /* Compact padding for links */
+        font-size: 14px;
+        padding: 8px 10px;
     }
 
     .header .user-profile span {
-        font-size: 0.85em; /* Slightly smaller font for user info */
+        font-size: 0.85em;
     }
 
     .header button {
@@ -131,7 +135,7 @@ body {
     }
 }
 
-/* Hover and Active State for Better Style */
+/* Accessibility and Active States */
 .header a:hover,
 .header a:focus {
     background-color: #444;

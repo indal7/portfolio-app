@@ -16,7 +16,7 @@ export class UserService {
 
   // Fetch user profile by email
   getUserProfile(email: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/api/profile/${email}`).pipe(
+    return this.http.get<any>(`${this.apiUrl}/profile/${email}`).pipe(
       catchError(error => {
         console.error('Error fetching profile:', error);
         throw error; // Re-throw the error after logging
@@ -26,7 +26,7 @@ export class UserService {
 
   // Update user profile
   updateUserProfile(formData: FormData): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/api/profile`, formData).pipe(
+    return this.http.post<any>(`${this.apiUrl}/profile`, formData).pipe(
       catchError(error => {
         console.error('Error updating profile:', error);
         throw error; // Re-throw the error after logging
@@ -36,17 +36,17 @@ export class UserService {
 
   // Fetch all users
   getUsers(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/fetch_all_users`);
+    return this.http.get<any>(`${this.apiUrl}/user/fetch_all_users`);
   }
 
   // Update user role
   updateUserRole(userEmail: string, newRole: string): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/update_user_role`, { role: newRole, email: userEmail });
+    return this.http.put<any>(`${this.apiUrl}/user/update_user_role`, { role: newRole, email: userEmail });
   }
 
   // Register a new user
   registerUser(registerData: { email: string; password: string; name: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/register`, registerData).pipe(
+    return this.http.post<any>(`${this.apiUrl}/user/register`, registerData).pipe(
       catchError(error => {
         console.error('Error registering user:', error);
         throw error; // Re-throw the error after logging
@@ -55,7 +55,7 @@ export class UserService {
   }
 
   resetPassword(resetData: { newPassword: string; token: string | null }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/reset_password`, resetData).pipe(
+    return this.http.post<any>(`${this.apiUrl}/user/reset_password`, resetData).pipe(
       catchError(error => {
         console.error('Error resetting password:', error);
         throw error; // Re-throw the error after logging

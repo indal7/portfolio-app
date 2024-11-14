@@ -13,6 +13,14 @@ export interface ApiResponse<T> {
   message?: string;
 }
 
+interface Skill {
+  skill_name: string;
+  skill_level: string;
+  skill_type: string;
+  description: string;
+  created_on: string;
+}
+
 export interface contact_info {
   type: string;
   value: string;
@@ -23,8 +31,8 @@ export interface UserProfile {
   email: string;
   bio: string;
   profile_photo: string | File | null;
-  contact_info: { type: string; value: string };
-  skills: string;
+  contact_info: { };
+  skills: Skill[];
   projectTags: string[];
   resume: string | File | null;
 }
@@ -40,19 +48,22 @@ export class ProfileComponent implements OnInit {
     email: '',
     bio: '',
     profile_photo: null,
-    contact_info: {
-      type: '',
-      value: ''
-    },
-    skills: '',
+    contact_info: { },
+    skills: [],
     projectTags: [],
     resume: null,
   };
+
+  selectedContactType: string = 'email';
+  contactInfoValue: string = '';
 
   editMode = false;
   isLoading = true;
   errorFetchingData = false;
   newTag = '';
+  newSkillName: string = ''; 
+  selectedSkillLevel: string = 'Beginner'; // Default skill level
+  skillLevels: string[] = ['Beginner', 'Intermediate', 'Advanced', 'Expert'];
 
   @ViewChild('fileInput') fileInput!: ElementRef;
 
@@ -77,10 +88,8 @@ export class ProfileComponent implements OnInit {
         this.isLoading = false;
         if (response.success && response.data) {
           this.userProfile = response.data;
-          this.userProfile.contact_info = {
-            type: this.userProfile.contact_info.type,
-            value: this.userProfile.contact_info.value,
-          };
+          this.updateContactInfoKey();
+          this.updateContactInfoValue();
           this.errorFetchingData = false;
         } else {
           this.handleProfileFetchError(response.message);
@@ -118,6 +127,7 @@ export class ProfileComponent implements OnInit {
     );
   }
 
+  // Build FormData with profile photo, resume, and other fields
   async buildFormData(): Promise<FormData> {
     const formData = new FormData();
 
@@ -139,13 +149,14 @@ export class ProfileComponent implements OnInit {
 
     // Append other fields
     for (const key in this.userProfile) {
+      
       if (key !== 'resume' && key !== 'profile_photo') {
         const value = (this.userProfile as any)[key];
+        console.log("key", key, value)
         if (value) {
           if (key === 'contact_info') {
-            // Append type and value separately for contact_info
-            formData.append('contact_info[type]', this.userProfile.contact_info.type);
-            formData.append('contact_info[value]', this.userProfile.contact_info.value);
+            // Convert contact_info object to JSON string
+            formData.append('contact_info', JSON.stringify(this.userProfile.contact_info));
           } else {
             // For other fields, append as normal
             formData.append(key, Array.isArray(value) ? JSON.stringify(value) : value);
@@ -153,7 +164,6 @@ export class ProfileComponent implements OnInit {
         }
       }
     }
-
     return formData;
   }
 
@@ -164,6 +174,7 @@ export class ProfileComponent implements OnInit {
     return new File([blob], fileName, { type: blob.type });
   }
 
+  // Handle profile photo change (upload new photo)
   onProfilePhotoChange(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target.files && target.files.length) {
@@ -176,6 +187,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  // Handle resume change (upload new resume)
   onResumeChange(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target.files && target.files.length) {
@@ -218,11 +230,52 @@ export class ProfileComponent implements OnInit {
     return 'Resume';
   }
 
+  // Update contact info
   updatecontact_info(index: number, type: string, value: string) {
     this.userProfile.contact_info[index] = { type, value };
   }
 
+  // Add skill to the profile
+  addSkill() {
+    if (this.newSkillName.trim() !== '') {
+      const newSkill: Skill = {
+        skill_name: this.newSkillName,
+        skill_level: 'Beginner',
+        skill_type: 'Technical',
+        description: '',
+        created_on: new Date().toISOString()
+      };
+      this.userProfile.skills.push(newSkill);
+      this.newSkillName = '';
+    }
+  }
+
+  // Remove skill from the user's profile
+  removeSkill(index: number) {
+    this.userProfile.skills.splice(index, 1);  // Remove the skill at the given index
+  }
+  
   createProfile() {
     this.updateProfile();
   }
+
+  updateContactInfoKey() {
+    // Reset contact_info with the selected key
+    this.userProfile.contact_info = { [this.selectedContactType]: this.contactInfoValue };
+  }
+
+  updateContactInfoValue() {
+    // Update the contact value for the selected type
+    this.userProfile.contact_info[this.selectedContactType] = this.contactInfoValue;
+  }
+
+  getContactInfoType(): string {
+    // Get the contact type key (e.g., 'email' or 'phone') from contact_info
+    return Object.keys(this.userProfile.contact_info)[0] as string || '';
+  }
+  
+  getContactInfoValue(): string {
+    // Get the contact value from contact_info
+    return Object.values(this.userProfile.contact_info)[0] as string || '';
+  }  
 }

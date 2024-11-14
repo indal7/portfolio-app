@@ -64,7 +64,7 @@ export class AuthService {
 
   // Login user and store token on success
   login(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, credentials).pipe(
+    return this.http.post<any>(`${this.apiUrl}/user/login`, credentials).pipe(
       tap(response => this.handleLoginResponse(response, credentials.email)),
       catchError(error => {
         console.error('Login error:', error);
@@ -104,7 +104,7 @@ export class AuthService {
 
   // Update user profile with form data
   updateUserProfile(formData: FormData): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/api/profile`, formData).pipe(
+    return this.http.post<any>(`${this.apiUrl}/profile`, formData).pipe(
       catchError(error => {
         console.error('Error updating profile:', error);
         throw error;
@@ -114,7 +114,7 @@ export class AuthService {
 
   // Retrieve user profile data based on email
   getUserProfile(email: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/api/profile/${email}`).pipe(
+    return this.http.get<any>(`${this.apiUrl}/profile/${email}`).pipe(
       tap(response => this.handleProfileResponse(response)),
       catchError(error => {
         console.error('Error fetching profile:', error);
@@ -134,7 +134,7 @@ export class AuthService {
 
   // Request password reset for a user by email
   requestPasswordReset(emailData: { email: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/request_password_reset`, emailData).pipe(
+    return this.http.post<any>(`${this.apiUrl}/user/request_password_reset`, emailData).pipe(
       catchError(error => {
         console.error('Error requesting password reset:', error);
         throw error;

@@ -21,10 +21,10 @@ interface Skill {
   created_on: string;
 }
 
-export interface contact_info {
-  type: string;
-  value: string;
-}
+// export interface contact_info {
+//   type: string;
+//   value: string;
+// }
 
 export interface UserProfile {
   username: string;
@@ -88,8 +88,8 @@ export class ProfileComponent implements OnInit {
         this.isLoading = false;
         if (response.success && response.data) {
           this.userProfile = response.data;
-          this.updateContactInfoKey();
-          this.updateContactInfoValue();
+          // this.updateContactInfoKey();
+          // this.updateContactInfoValue();
           this.errorFetchingData = false;
         } else {
           this.handleProfileFetchError(response.message);

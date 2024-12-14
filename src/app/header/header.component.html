@@ -1,52 +1,54 @@
 <header class="header">
-    <nav>
-      <ul>
-        <li>
-          <a
-            routerLink="/projects-list"
-            [ngClass]="{ 'disabled': !isLoggedIn }"
-            (click)="!isLoggedIn ? navigateToLogin($event) : null"
-          >
-            <i class="fas fa-project-diagram"></i> Projects
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/profile"
-            [ngClass]="{ 'disabled': !isLoggedIn }"
-            (click)="!isLoggedIn ? navigateToLogin($event) : null"
-          >
-            <i class="fas fa-user-circle"></i> About
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/contact"
-            [ngClass]="{ 'disabled': !isLoggedIn }"
-            (click)="!isLoggedIn ? navigateToLogin($event) : null"
-          >
-            <i class="fas fa-envelope"></i> Contact
-          </a>
-        </li>
-        <li *ngIf="isLoggedIn && userRole === 'admin'">
-          <a routerLink="/manage-users">
-            <i class="fas fa-users-cog"></i> Manage Users
-          </a>
-        </li>
-        <li class="user-profile" *ngIf="isLoggedIn">
-          <i class="fas fa-user"></i>
-          <span>Welcome, {{ userName }}!</span>
-          <span>{{ userEmail }}</span>
-          <button (click)="logout()">
-            <i class="fas fa-sign-out-alt"></i> Logout
-          </button>
-        </li>
-        <li *ngIf="!isLoggedIn">
-          <a routerLink="/login">
-            <i class="fas fa-user"></i> <!-- User icon in place of "Login" text -->
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  
+  <nav>
+    <ul>
+      <li>
+        <a
+          routerLink="/projects-list"
+          [ngClass]="{ 'disabled': !isLoggedIn }"
+          (click)="!isLoggedIn ? navigateToLogin($event) : null"
+          [attr.aria-disabled]="!isLoggedIn ? true : null"
+        >
+          <i class="fas fa-project-diagram"></i> Projects
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/profile"
+          [ngClass]="{ 'disabled': !isLoggedIn }"
+          (click)="!isLoggedIn ? navigateToLogin($event) : null"
+          [attr.aria-disabled]="!isLoggedIn ? true : null"
+        >
+          <i class="fas fa-user-circle"></i> About
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/contact"
+          [ngClass]="{ 'disabled': !isLoggedIn }"
+          (click)="!isLoggedIn ? navigateToLogin($event) : null"
+          [attr.aria-disabled]="!isLoggedIn ? true : null"
+        >
+          <i class="fas fa-envelope"></i> Contact
+        </a>
+      </li>
+      <li *ngIf="isLoggedIn && userRole === 'admin'">
+        <a routerLink="/manage-users">
+          <i class="fas fa-users-cog"></i> Manage Users
+        </a>
+      </li>
+      <li class="user-profile" *ngIf="isLoggedIn">
+        <i class="fas fa-user"></i>
+        <span>Welcome, {{ userName }}!</span>
+        <span>{{ userEmail }}</span>
+        <button (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </li>
+      <li *ngIf="!isLoggedIn">
+        <a routerLink="/login">
+          <i class="fas fa-user"></i> <!-- User icon in place of "Login" text -->
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

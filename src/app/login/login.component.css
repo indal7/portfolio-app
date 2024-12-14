@@ -1,12 +1,22 @@
-/* Login Container Styling */
+/* General Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Login Container */
 .login-container {
   max-width: 450px;
   margin: 40px auto;
   padding: 25px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  font-family: Arial, sans-serif;
   transition: box-shadow 0.3s ease;
 }
 
@@ -18,7 +28,7 @@
 .login-container h2,
 .password-reset h3 {
   text-align: center;
-  color: #333333;
+  color: #333;
   font-size: 1.8em;
   margin-bottom: 25px;
 }
@@ -31,19 +41,26 @@ form {
 }
 
 label {
-  color: #666666;
+  color: #666;
   font-size: 0.9rem;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  width: 100%;
-  padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
 }
 
 input:focus {
@@ -51,17 +68,13 @@ input:focus {
   outline: none;
 }
 
-/* Button Styling */
+/* Buttons */
 button[type="submit"],
 button[type="button"] {
-  padding: 12px 0;
   background-color: #007bff;
-  color: #ffffff;
+  color: #fff;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s, transform 0.2s ease;
   margin-top: 10px;
 }
 
@@ -79,7 +92,7 @@ button[type="button"]:hover {
   background-color: #5a6268;
 }
 
-/* Error and Success Message Styling */
+/* Message Styling */
 .error,
 .message {
   font-size: 0.9rem;
@@ -99,7 +112,7 @@ button[type="button"]:hover {
   background-color: #e9f5ec;
 }
 
-/* Password Reset Section Styling */
+/* Password Reset Section */
 .password-reset {
   margin-top: 20px;
   padding-top: 10px;
@@ -113,26 +126,20 @@ button[type="button"]:hover {
 }
 
 .password-reset button {
-  display: inline-block;
   width: 100%;
-  margin-top: 10px;
-}
-
-/* Separate Reset and Back to Login Buttons */
-.password-reset button + button {
   margin-top: 10px;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
   .login-container {
-      padding: 15px;
-      width: 90%;
+    padding: 15px;
+    width: 90%;
   }
 
   h2,
   h3 {
-      font-size: 1.5em;
+    font-size: 1.5em;
   }
 
   input[type="text"],
@@ -140,6 +147,6 @@ button[type="button"]:hover {
   input[type="password"],
   button[type="submit"],
   button[type="button"] {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 }

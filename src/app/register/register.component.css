@@ -1,103 +1,120 @@
-/* Container Styling */
+/* Register Form Styles */
 .register-container {
-    max-width: 500px; /* Limit the width for better readability */
-    margin: auto; /* Center the form */
+    max-width: 500px;
+    margin: 0 auto;
     padding: 20px;
+    font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Heading Styling */
-h2 {
+/* Form Heading */
+.register-container h2 {
     text-align: center;
-    color: #333;
-    font-size: 24px;
+    font-size: 2rem;
     margin-bottom: 20px;
+    color: #333;
 }
 
-/* Form Styling */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Space between form elements */
+.register-container h2 i {
+    margin-right: 8px;
 }
 
+/* Label Styling */
 label {
-    font-size: 14px;
-    color: #555;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+label i {
+    margin-right: 8px;
+}
+
+/* Input Field Styling */
+input {
     width: 100%;
     padding: 10px;
+    font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 /* Button Styling */
-button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: #28a745;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #218838;
 }
 
-/* Message Styling */
-.error {
-    color: red;
+button i {
+    margin-right: 10px;
+}
+
+/* Success and Error Message */
+.error, .success {
+    font-size: 1rem;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 4px;
     text-align: center;
-    margin-top: 10px;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
 }
 
 .success {
-    color: green;
-    text-align: center;
-    margin-top: 10px;
+    background-color: #d4edda;
+    color: #155724;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-    .register-container {
-        padding: 15px;
-        width: 90%; /* Takes up more width on smaller screens */
-    }
-
-    h2 {
-        font-size: 22px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    button[type="submit"] {
-        font-size: 14px;
-    }
-}
-
-/* Additional button styling for the login redirect */
-.register-container button[type="button"] {
+/* Link to Login */
+button[type="button"] {
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
     margin-top: 15px;
-    background: transparent;
-    color: #007bff;
+    padding: 10px 20px;
     border: none;
+    border-radius: 6px;
     cursor: pointer;
     text-align: center;
-    font-size: 14px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
-.register-container button[type="button"]:hover {
-    text-decoration: underline;
+button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+button[type="button"] i {
+    margin-right: 8px;
 }

@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private toasterService: ToasterService,
     private authService: AuthService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {

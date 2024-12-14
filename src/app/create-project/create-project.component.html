@@ -1,24 +1,48 @@
 <div>
-  <h2>Create New Project</h2>
+  <h2><i class="fas fa-plus-circle"></i> Create New Project</h2>
   <form (submit)="addProject()">
-    <input type="text" placeholder="Title" [(ngModel)]="newProject.title" name="title" required>
-    <input type="text" placeholder="Description" [(ngModel)]="newProject.description" name="description" required>
-    <input type="text" placeholder="Link" [(ngModel)]="newProject.link" name="link" required>
-    
-    <!-- New fields added below -->
-    <input type="text" placeholder="Technologies Used" [(ngModel)]="newProject.technologies" name="technologies" required>
-    <input type="date" placeholder="Date Completed" [(ngModel)]="newProject.dateCompleted" name="dateCompleted" required>
-    
-    <select [(ngModel)]="newProject.project_status" name="projectStatus" required>
-      <option value="" disabled selected>Select Project Status</option>
-      <option value="Ongoing">Ongoing</option>
-      <option value="Completed">Completed</option>
-      <option value="On Hold">On Hold</option>
-    </select>
-    
+    <div class="form-group">
+      <label for="title"><i class="fas fa-heading"></i> Title</label>
+      <input type="text" id="title" placeholder="Title" [(ngModel)]="newProject.title" name="title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description"><i class="fas fa-align-left"></i> Description</label>
+      <input type="text" id="description" placeholder="Description" [(ngModel)]="newProject.description" name="description" required>
+    </div>
+
+    <div class="form-group">
+      <label for="link"><i class="fas fa-link"></i> Link</label>
+      <input type="text" id="link" placeholder="Link" [(ngModel)]="newProject.link" name="link" required>
+    </div>
+
+    <!-- New fields with icons added -->
+    <div class="form-group">
+      <label for="technologies"><i class="fas fa-laptop-code"></i> Technologies Used</label>
+      <input type="text" id="technologies" placeholder="Technologies Used" [(ngModel)]="newProject.technologies" name="technologies" required>
+    </div>
+
+    <div class="form-group">
+      <label for="dateCompleted"><i class="fas fa-calendar-alt"></i> Date Completed</label>
+      <input type="date" id="dateCompleted" placeholder="Date Completed" [(ngModel)]="newProject.dateCompleted" name="dateCompleted" required>
+    </div>
+
+    <div class="form-group">
+      <label for="projectStatus"><i class="fas fa-tasks"></i> Project Status</label>
+      <select id="projectStatus" [(ngModel)]="newProject.project_status" name="projectStatus" required>
+        <option value="" disabled selected>Select Project Status</option>
+        <option value="Ongoing">Ongoing</option>
+        <option value="Completed">Completed</option>
+        <option value="On Hold">On Hold</option>
+      </select>
+    </div>
+
     <!-- Optional Resume File Upload -->
-    <input type="file" (change)="newProject.resumeFile = $event.target.files[0]" name="resume">
+    <div class="form-group">
+      <label for="resume"><i class="fas fa-file-upload"></i> Upload Resume</label>
+      <input type="file" id="resume" (change)="newProject.resumeFile = $event.target.files[0]" name="resume">
+    </div>
     
-    <button type="submit">Add Project</button>
+    <button type="submit"><i class="fas fa-plus"></i> Add Project</button>
   </form>
 </div>

@@ -1,28 +1,35 @@
 <!-- src/app/manage-projects/manage-projects.component.html -->
 <div class="projects-container">
-    <h2>Manage Projects</h2>
+    <h2><i class="fas fa-cogs"></i> Manage Projects</h2>
     <ul class="projects-list">
         <li *ngFor="let project of projects" class="project-item">
             <div class="project-main-info">
-                <h3>{{ project.title }}</h3>
+                <h3><i class="fas fa-project-diagram"></i> {{ project.title }}</h3>
                 <p>{{ project.description }}</p>
-                <a [href]="project.link" target="_blank" class="project-link">View Project</a>
+                <a [href]="project.link" target="_blank" class="project-link"><i class="fas fa-link"></i> View Project</a>
             </div>
 
             <div class="project-details">
-                <p><strong>ID:</strong> {{ project.id }}</p>
+                <p><strong><i class="fas fa-id-badge"></i> ID:</strong> {{ project.id }}</p>
                 <span class="badge" [ngClass]="{'badge-success': project.project_status === 'Ongoing', 'badge-danger': project.project_status === 'On Hold'}">
+                    <i class="fas" [ngClass]="{'fa-play-circle': project.project_status === 'Ongoing', 'fa-pause-circle': project.project_status === 'On Hold'}"></i>
                     {{ project.project_status }}
                 </span>
-                <p><strong>Updated On:</strong> {{ project.updated_on | date: 'MMMM d, y, h:mm a' }}</p>
+                <p><strong><i class="fas fa-calendar-day"></i> Updated On:</strong> {{ project.updated_on | date: 'MMMM d, y, h:mm a' }}</p>
             </div>
 
             <div class="project-actions">
-                <button class="update-button" (click)="updateProject(project)">Update</button>
-                <button class="delete-button" (click)="deleteProject(project.id)">Delete</button>
+                <button class="update-button" (click)="updateProject(project)">
+                    <i class="fas fa-edit"></i> Update
+                </button>
+                <button class="delete-button" (click)="deleteProject(project.id)">
+                    <i class="fas fa-trash-alt"></i> Delete
+                </button>
             </div>
         </li>
     </ul>
 
-    <button class="add-more-project" (click)="addMoreProject()">Add More Project</button>
+    <button class="add-more-project" (click)="addMoreProject()">
+        <i class="fas fa-plus"></i> Add More Project
+    </button>
 </div>

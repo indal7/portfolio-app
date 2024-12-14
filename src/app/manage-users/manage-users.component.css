@@ -1,105 +1,85 @@
-/* Users Container */
+/* Users Management Container */
 .users-container {
     max-width: 900px;
     margin: 40px auto;
+    background-color: #fff;
     padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-    transition: box-shadow 0.3s ease;
-}
-
-.users-container:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Headings */
-h2 {
-    text-align: center;
-    color: #333;
-    font-size: 1.8em;
-    margin-bottom: 20px;
+    border: 1px solid #ddd;
 }
 
 /* Users Table */
 .users-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 1rem;
-    overflow: hidden;
-    border-radius: 10px;
+    margin-top: 20px;
 }
 
-/* Table Head */
-thead {
-    background-color: #007bff;
-    color: white;
-}
-
-th, td {
-    padding: 15px;
+.users-table th, .users-table td {
+    padding: 10px;
     text-align: left;
+    font-size: 16px;
 }
 
-th {
+.users-table th {
+    background-color: #f8f9fa;
     font-weight: bold;
 }
 
-/* Table Body Rows */
-.user-item:nth-child(even) {
-    background-color: #f7f9fc;
+.users-table td {
+    background-color: #f9f9f9;
 }
 
-.user-item:nth-child(odd) {
-    background-color: #ffffff;
+/* Icons in Table Header */
+.users-table th i {
+    margin-right: 8px;
 }
 
-/* Row Hover Effect */
+/* User Item Styling */
+.user-item {
+    border-bottom: 1px solid #ddd;
+}
+
 .user-item:hover {
-    background-color: #f0f0f0;
-    transition: background-color 0.3s;
+    background-color: #f1f1f1;
 }
 
-/* Dropdown Styles */
-select {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    background-color: #ffffff;
-    color: #333;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: border-color 0.3s;
-}
-
-select:focus {
-    outline: none;
-    border-color: #007bff;
+/* Role Dropdown */
+.users-table select {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
 }
 
 /* Update Role Button */
 .update-role-button {
-    padding: 10px 15px;
-    background-color: #28a745;
-    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
     border: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    background-color: #007bff;
+    color: white;
 }
 
-.update-role-button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
+.update-role-button i {
+    margin-right: 5px;
 }
 
-/* Disabled Button */
-.update-role-button[disabled] {
-    background-color: #bbb;
+.update-role-button:disabled {
+    background-color: #6c757d;
     cursor: not-allowed;
-    transform: none;
+}
+
+/* Hover Effects for Buttons */
+.update-role-button:hover {
+    background-color: #0056b3;
 }
 
 /* Responsive Design */
@@ -108,35 +88,8 @@ select:focus {
         padding: 15px;
     }
 
-    h2 {
-        font-size: 1.5em;
-    }
-
-    th, td {
-        padding: 12px;
-    }
-
-    .update-role-button {
-        font-size: 0.8rem;
-        padding: 8px 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .users-container {
-        padding: 10px;
-    }
-
-    h2 {
-        font-size: 1.4em;
-    }
-
-    th, td {
-        padding: 10px;
-        font-size: 0.9rem;
-    }
-
-    .update-role-button {
-        padding: 7px 10px;
+    .users-table th, .users-table td {
+        font-size: 14px;
+        padding: 8px;
     }
 }

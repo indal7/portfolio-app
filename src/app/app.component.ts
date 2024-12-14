@@ -12,7 +12,18 @@ export class AppComponent {
   faUser = faUser;
   faProjectDiagram = faProjectDiagram;
   faUserCircle = faUserCircle;
+  isLoading: boolean = false;
+  constructor() {}
   faEnvelope = faEnvelope;
   faUsersCog = faUsersCog;
   faSignOutAlt = faSignOutAlt;
+  
+  fetchData() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+      console.log('Data loaded successfully!');
+    }, 3000);
+  }
+  
 }

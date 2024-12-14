@@ -9,6 +9,14 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    /*min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1; /* This allows the content area to take up remaining space */
 }
 
 /* Footer Styles */
@@ -18,9 +26,8 @@ body {
     text-align: center; /* Center align the text */
     padding: 20px 15px; /* Add padding for breathing space */
     font-size: 16px; /* Default font size */
-    position: fixed; /* Sticks the footer at the bottom */
     width: 100%;
-    bottom: 0;
+    bottom: 0; /* Push the footer to the bottom */
 }
 
 .footer p {
@@ -50,3 +57,12 @@ body {
         padding: 10px 8px; /* Compact padding */
     }
 }
+
+
+
+
+
+
+
+
+

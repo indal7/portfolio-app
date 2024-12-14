@@ -1,12 +1,13 @@
+<!-- src/app/manage-users/manage-users.component.html -->
 <div class="users-container">
-    <h2>Manage Users</h2>
+    <h2><i class="fas fa-users"></i> Manage Users</h2>
     <table class="users-table">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Action</th>
+                <th><i class="fas fa-user"></i> Name</th>
+                <th><i class="fas fa-envelope"></i> Email</th>
+                <th><i class="fas fa-user-tag"></i> Role</th>
+                <th><i class="fas fa-cogs"></i> Action</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +26,7 @@
                         class="update-role-button" 
                         (click)="updateUserRole(user.email, user.role)" 
                         [disabled]="!user.roleChanged">
-                        Update Role
+                        <i class="fas fa-sync-alt"></i> Update Role
                     </button>
                 </td>
             </tr>

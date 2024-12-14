@@ -1,86 +1,34 @@
 <div class="profile-container">
-    <h2>User Profile</h2>
-  
-    <!-- Toggle button for Edit Mode -->
-    <button class="toggle-button" (click)="toggleEditMode()">
-      {{ editMode ? 'Cancel' : 'Edit Profile' }}
-    </button>
-  
-    <!-- Loading Indicator -->
-    <div *ngIf="isLoading" class="spinner">Loading profile...</div>
-  
-    <!-- Profile Details -->
-    <div class="profile-details" *ngIf="!isLoading">
-      <ng-container *ngIf="!errorFetchingData; else createProfileTemplate">
-        <h3>{{ editMode ? 'Update Profile' : 'Profile Details' }}</h3>
-  
-        <!-- View Mode: Display Profile Details -->
-        <div *ngIf="!editMode">
-          <div class="profile-picture-wrapper">
-            <img [src]="userProfile.profile_photo || 'assets/default-profile.png'" alt="Profile Picture" class="profile-picture" />
-            <p *ngIf="!userProfile.profile_photo">No profile picture available.</p>
-          </div>
-          <p><strong>Username:</strong> {{ userProfile.username }}</p>
-          <p><strong>Email:</strong> {{ userProfile.email }}</p>
-          <p><strong>Bio:</strong> {{ userProfile.bio }}</p>
-          <p><strong>Contact Info:</strong> {{ getContactInfoType() }} : {{ getContactInfoValue() }}</p>
-          
-          <!-- Skills Section -->
-          <div *ngIf="userProfile.skills && userProfile.skills.length > 0">
-            <p><strong>Skills:</strong></p>
-            <table class="skills-table">
-              <thead>
-                <tr>
-                  <th>Skill Name</th>
-                  <th>Skill Level</th>
-                  <th>Skill Type</th>
-                  <th>Description</th>
-                  <th>Created On</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let skill of userProfile.skills; let i = index">
-                  <td>{{ skill.skill_name }}</td>
-                  <td>{{ skill.skill_level }}</td>
-                  <td>{{ skill.skill_type }}</td>
-                  <td>{{ skill.description }}</td>
-                  <td>{{ skill.created_on | date: 'medium' }}</td>
-                  <td><button (click)="removeSkill(i)">Remove Skill</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p *ngIf="!userProfile.skills || userProfile.skills.length === 0">No skills available.</p>
-  
-          <div *ngIf="userProfile.resume">
-            <p><strong>Resume:</strong> {{ extractFileName(userProfile.resume) }}</p>
-            <a [href]="userProfile.resume" target="_blank" download class="download-resume">Download Resume</a>
-          </div>
+  <h2>User Profile</h2>
+
+  <!-- Toggle button for Edit Mode -->
+  <button class="toggle-button" (click)="toggleEditMode()">
+    <i class="fas" [ngClass]="editMode ? 'fa-times' : 'fa-edit'"></i>
+    {{ editMode ? 'Cancel' : 'Edit Profile' }}
+  </button>
+
+  <!-- Loading Indicator -->
+  <div *ngIf="isLoading" class="spinner">Loading profile...</div>
+
+  <!-- Profile Details -->
+  <div class="profile-details" *ngIf="!isLoading">
+    <ng-container *ngIf="!errorFetchingData; else createProfileTemplate">
+      <h3>{{ editMode ? 'Update Profile' : 'Profile Details' }}</h3>
+
+      <!-- View Mode: Display Profile Details -->
+      <div *ngIf="!editMode">
+        <div class="profile-picture-wrapper">
+          <img [src]="userProfile.profile_photo || 'assets/default-profile.png'" alt="Profile Picture" class="profile-picture" />
+          <p *ngIf="!userProfile.profile_photo">No profile picture available.</p>
         </div>
-  
-        <!-- Edit Mode: Update Profile Form -->
-        <form *ngIf="editMode" (ngSubmit)="updateProfile()" #profileForm="ngForm">
-          <label for="username">Username:</label>
-          <input id="username" [(ngModel)]="userProfile.username" name="username" required />
-  
-          <label for="email">Email:</label>
-          <input id="email" [(ngModel)]="userProfile.email" name="email" required email />
-  
-          <label for="bio">Bio:</label>
-          <textarea id="bio" [(ngModel)]="userProfile.bio" name="bio"></textarea>
-  
-          <label for="contactType">Contact Type:</label>
-          <select id="contactType" [(ngModel)]="selectedContactType" (change)="updateContactInfoKey()" name="contactType">
-            <option value="email">Email</option>
-            <option value="phone">Phone</option>
-          </select>
-          
-          <label for="contactValue">Contact Value:</label>
-          <input id="contactValue" [(ngModel)]="contactInfoValue" (input)="updateContactInfoValue()" name="contactValue" placeholder="Enter contact value" />
-  
-          <!-- Skills Table -->
-          <label for="skills">Skills:</label>
+        <p><strong>Username:</strong> {{ userProfile.username }}</p>
+        <p><strong>Email:</strong> {{ userProfile.email }}</p>
+        <p><strong>Bio:</strong> {{ userProfile.bio }}</p>
+        <p><strong>Contact Info:</strong> {{ getContactInfoType() }} : {{ getContactInfoValue() }}</p>
+
+        <!-- Skills Section -->
+        <div *ngIf="userProfile.skills && userProfile.skills.length > 0">
+          <p><strong>Skills:</strong></p>
           <table class="skills-table">
             <thead>
               <tr>
@@ -88,78 +36,162 @@
                 <th>Skill Level</th>
                 <th>Skill Type</th>
                 <th>Description</th>
+                <th>Created On</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let skill of userProfile.skills; let i = index">
-                <td><input [(ngModel)]="userProfile.skills[i].skill_name" name="skillName{{i}}" required /></td>
-                <td>
-                  <select [(ngModel)]="userProfile.skills[i].skill_level" name="skillLevel{{i}}" required>
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
-                    <option value="Expert">Expert</option>
-                  </select>
-                </td>
-                <td><input [(ngModel)]="userProfile.skills[i].skill_type" name="skillType{{i}}" required /></td>
-                <td><textarea [(ngModel)]="userProfile.skills[i].description" name="skillDescription{{i}}" required></textarea></td>
-                <td><button type="button" (click)="removeSkill(i)">Remove Skill</button></td>
+                <td>{{ skill.skill_name }}</td>
+                <td>{{ skill.skill_level }}</td>
+                <td>{{ skill.skill_type }}</td>
+                <td>{{ skill.description }}</td>
+                <td>{{ skill.created_on | date: 'medium' }}</td>
+                <td><button (click)="removeSkill(i)"><i class="fas fa-trash-alt"></i> Remove Skill</button></td>
               </tr>
             </tbody>
           </table>
-  
-          <div>
-            <label for="newSkill">Add New Skill:</label>
-            <input [(ngModel)]="newSkillName" name="newSkill" placeholder="Enter new skill" />
-            <button type="button" (click)="addSkill()">Add Skill</button>
-          </div>
-  
-          <label for="projectTags">Project Tags:</label>
-          <input id="projectTags" [(ngModel)]="newTag" (keypress)="addTag($event)" placeholder="Press Enter to add tag" />
-          <div class="tags-container">
-            <span *ngFor="let tag of userProfile.projectTags" class="tag">
-              {{ tag }} <button type="button" (click)="removeTag(tag)">x</button>
-            </span>
-          </div>
-  
-          <label for="profilePicture">Profile Picture:</label>
-          <input type="file" id="profilePicture" (change)="onProfilePhotoChange($event)" accept="image/*" />
-          <p *ngIf="userProfile.profile_photo">Selected: {{ extractFileName(userProfile.profile_photo) }}</p>
-  
-          <label for="resume">Upload Resume:</label>
-          <input type="file" id="resume" (change)="onResumeChange($event)" accept=".pdf,.doc,.docx" />
-          <p *ngIf="userProfile.resume">Selected: {{ extractFileName(userProfile.resume) }}</p>
-  
-          <button type="submit">Update Profile</button>
-        </form>
-      </ng-container>
-  
-      <!-- Template for creating a new profile -->
-      <ng-template #createProfileTemplate>
-        <h3>Create Profile</h3>
-        <form (ngSubmit)="createProfile()" #createProfileForm="ngForm">
-          <label for="newUsername">Username:</label>
-          <input id="newUsername" [(ngModel)]="userProfile.username" name="newUsername" required />
-  
-          <label for="newEmail">Email:</label>
-          <input id="newEmail" [(ngModel)]="userProfile.email" name="newEmail" required email />
-  
-          <label for="newBio">Bio:</label>
-          <textarea id="newBio" [(ngModel)]="userProfile.bio" name="newBio"></textarea>
-  
-          <label for="contactType">Contact Type:</label>
-          <select id="contactType" [(ngModel)]="selectedContactType" (change)="updateContactInfoKey()" name="contactType">
-            <option value="email">Email</option>
-            <option value="phone">Phone</option>
-          </select>
-          
-          <label for="contactValue">Contact Value:</label>
-          <input id="contactValue" [(ngModel)]="contactInfoValue" (input)="updateContactInfoValue()" name="contactValue" placeholder="Enter contact value" />
-  
-          <button type="submit">Create Profile</button>
-        </form>
-      </ng-template>
-    </div>
+        </div>
+        <p *ngIf="!userProfile.skills || userProfile.skills.length === 0">No skills available.</p>
+
+        <div *ngIf="userProfile.resume">
+          <p><strong>Resume:</strong> {{ extractFileName(userProfile.resume) }}</p>
+          <a [href]="userProfile.resume" target="_blank" download class="download-resume">
+            <i class="fas fa-download"></i> Download Resume
+          </a>
+        </div>
+      </div>
+
+      <!-- Edit Mode: Update Profile Form -->
+      <form *ngIf="editMode" (ngSubmit)="updateProfile()" #profileForm="ngForm">
+        <label for="username">
+          <i class="fas fa-user"></i> Username:
+        </label>
+        <input id="username" [(ngModel)]="userProfile.username" name="username" required />
+
+        <label for="email">
+          <i class="fas fa-envelope"></i> Email:
+        </label>
+        <input id="email" [(ngModel)]="userProfile.email" name="email" required email />
+
+        <label for="bio">
+          <i class="fas fa-pencil-alt"></i> Bio:
+        </label>
+        <textarea id="bio" [(ngModel)]="userProfile.bio" name="bio"></textarea>
+
+        <label for="contactType">
+          <i class="fas fa-phone-alt"></i> Contact Type:
+        </label>
+        <select id="contactType" [(ngModel)]="selectedContactType" (change)="updateContactInfoKey()" name="contactType">
+          <option value="email">Email</option>
+          <option value="phone">Phone</option>
+        </select>
+
+        <label for="contactValue">
+          <i class="fas fa-info-circle"></i> Contact Value:
+        </label>
+        <input id="contactValue" [(ngModel)]="contactInfoValue" (input)="updateContactInfoValue()" name="contactValue" placeholder="Enter contact value" />
+
+        <!-- Skills Table -->
+        <label for="skills">
+          <i class="fas fa-cogs"></i> Skills:
+        </label>
+        <table class="skills-table">
+          <thead>
+            <tr>
+              <th>Skill Name</th>
+              <th>Skill Level</th>
+              <th>Skill Type</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let skill of userProfile.skills; let i = index">
+              <td><input [(ngModel)]="userProfile.skills[i].skill_name" name="skillName{{i}}" required /></td>
+              <td>
+                <select [(ngModel)]="userProfile.skills[i].skill_level" name="skillLevel{{i}}" required>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </td>
+              <td><input [(ngModel)]="userProfile.skills[i].skill_type" name="skillType{{i}}" required /></td>
+              <td><textarea [(ngModel)]="userProfile.skills[i].description" name="skillDescription{{i}}" required></textarea></td>
+              <td><button type="button" (click)="removeSkill(i)"><i class="fas fa-trash-alt"></i> Remove Skill</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div>
+          <label for="newSkill">
+            <i class="fas fa-plus-circle"></i> Add New Skill:
+          </label>
+          <input [(ngModel)]="newSkillName" name="newSkill" placeholder="Enter new skill" />
+          <button type="button" (click)="addSkill()"><i class="fas fa-plus"></i> Add Skill</button>
+        </div>
+
+        <label for="projectTags">
+          <i class="fas fa-tags"></i> Project Tags:
+        </label>
+        <input id="projectTags" [(ngModel)]="newTag" (keypress)="addTag($event)" placeholder="Press Enter to add tag" />
+        <div class="tags-container">
+          <span *ngFor="let tag of userProfile.projectTags" class="tag">
+            {{ tag }} <button type="button" (click)="removeTag(tag)"><i class="fas fa-times-circle"></i></button>
+          </span>
+        </div>
+
+        <label for="profilePicture">
+          <i class="fas fa-camera"></i> Profile Picture:
+        </label>
+        <input type="file" id="profilePicture" (change)="onProfilePhotoChange($event)" accept="image/*" />
+        <p *ngIf="userProfile.profile_photo">Selected: {{ extractFileName(userProfile.profile_photo) }}</p>
+
+        <label for="resume">
+          <i class="fas fa-file-upload"></i> Upload Resume:
+        </label>
+        <input type="file" id="resume" (change)="onResumeChange($event)" accept=".pdf,.doc,.docx" />
+        <p *ngIf="userProfile.resume">Selected: {{ extractFileName(userProfile.resume) }}</p>
+
+        <button type="submit"><i class="fas fa-save"></i> Update Profile</button>
+      </form>
+    </ng-container>
+
+    <!-- Template for creating a new profile -->
+    <ng-template #createProfileTemplate>
+      <h3>Create Profile</h3>
+      <form (ngSubmit)="createProfile()" #createProfileForm="ngForm">
+        <label for="newUsername">
+          <i class="fas fa-user"></i> Username:
+        </label>
+        <input id="newUsername" [(ngModel)]="userProfile.username" name="newUsername" required />
+
+        <label for="newEmail">
+          <i class="fas fa-envelope"></i> Email:
+        </label>
+        <input id="newEmail" [(ngModel)]="userProfile.email" name="newEmail" required email />
+
+        <label for="newBio">
+          <i class="fas fa-pencil-alt"></i> Bio:
+        </label>
+        <textarea id="newBio" [(ngModel)]="userProfile.bio" name="newBio"></textarea>
+
+        <label for="newContactType">
+          <i class="fas fa-phone-alt"></i> Contact Type:
+        </label>
+        <select id="newContactType" [(ngModel)]="selectedContactType" name="newContactType">
+          <option value="email">Email</option>
+          <option value="phone">Phone</option>
+        </select>
+
+        <label for="newContactValue">
+          <i class="fas fa-info-circle"></i> Contact Value:
+        </label>
+        <input id="newContactValue" [(ngModel)]="contactInfoValue" name="newContactValue" />
+
+        <button type="submit"><i class="fas fa-user-plus"></i> Create Profile</button>
+      </form>
+    </ng-template>
   </div>
-  
+</div>

@@ -1,83 +1,85 @@
-/* Container Styling */
+/* Update Project Container */
 .update-project-container {
-    max-width: 500px; /* Adjusted for better mobile visibility */
-    margin: auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border: 1px solid #ddd;
 }
 
-/* Heading Styling */
-h2 {
-    text-align: center;
-    color: #333;
-    font-size: 24px;
+/* Form Group Styling */
+.form-group {
     margin-bottom: 20px;
-}
-
-/* Form Styling */
-form {
     display: flex;
-    flex-direction: column;
-    gap: 15px; /* Space between form elements */
+    align-items: center;
 }
 
-label {
-    color: #555;
-    font-size: 14px;
+/* Label Styling with Icons */
+.form-group label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-right: 10px;
 }
 
-/* Input and Textarea Styling */
-input[type="text"],
-input[type="url"],
-textarea,
-select {
+.form-group i {
+    margin-right: 8px; /* Space between icon and label text */
+    font-size: 18px;
+    color: #007bff; /* Icon color */
+}
+
+/* Input Fields and Select */
+input, textarea, select {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
 }
 
-/* Textarea Specific Styling */
-textarea {
-    min-height: 100px; /* Ensures a decent height for the textarea */
+input:focus, textarea:focus, select:focus {
+    border-color: #007bff;
+    background-color: #e9f3ff; /* Light blue background on focus */
+    outline: none;
 }
 
 /* Button Styling */
-button[type="submit"] {
+button {
+    width: 100%;
+    padding: 12px;
     background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    color: white;
     font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
+button:hover {
     background-color: #0056b3;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-    .update-project-container {
-        padding: 15px;
-        width: 90%; /* Takes up more width on smaller screens */
+button i {
+    margin-right: 10px; /* Space between icon and button text */
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    h2 {
-        font-size: 22px;
-    }
-
-    input[type="text"],
-    input[type="url"],
-    textarea,
-    select,
-    button[type="submit"] {
+    input, select, button {
         font-size: 14px;
     }
 }

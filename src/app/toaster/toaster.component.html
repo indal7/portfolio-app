@@ -1,4 +1,6 @@
 <div *ngFor="let message of messages" class="toaster-message" [ngClass]="message.type">
-    {{ message.text }}
-  </div>
-  
+  <i *ngIf="message.type === 'success'" class="fas fa-check-circle"></i>
+  <i *ngIf="message.type === 'error'" class="fas fa-exclamation-circle"></i>
+  <i *ngIf="message.type === 'info'" class="fas fa-info-circle"></i>
+  {{ message.text }}
+</div>

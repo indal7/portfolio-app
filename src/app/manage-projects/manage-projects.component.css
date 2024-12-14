@@ -1,198 +1,155 @@
-/* Projects Container Styles */
+/* Project Management Container */
 .projects-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
     padding: 20px;
-    background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border: 1px solid #ddd;
 }
 
-/* Heading Style */
-.projects-container h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Projects List Styles */
+/* Project List and Items */
 .projects-list {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
-/* Project Item Styles */
 .project-item {
-    background-color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.project-item:hover {
-    transform: translateY(-2px);
+/* Project Title and Description */
+.project-main-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Project Main Info Styles */
 .project-main-info h3 {
     font-size: 20px;
-    color: #007bff;
-    margin: 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 
-.project-main-info p {
-    font-size: 14px;
-    color: #555;
+.project-main-info i {
+    margin-right: 8px; /* Space between icon and text */
 }
 
-/* Project Link Style */
 .project-link {
-    display: inline-block;
-    margin-top: 10px;
     color: #007bff;
     text-decoration: none;
-    transition: color 0.3s;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 
-.project-link:hover {
-    color: #0056b3;
+.project-link i {
+    margin-right: 8px;
 }
 
-/* Project Details Styles */
-.project-details {
-    margin-top: 10px;
+/* Project Details */
+.project-details p {
+    margin: 5px 0;
     font-size: 14px;
-    color: #666;
 }
 
-/* Badge Styles */
 .badge {
-    display: inline-block;
+    font-size: 14px;
     padding: 4px 8px;
     border-radius: 12px;
-    font-size: 12px;
     color: #fff;
 }
 
 .badge-success {
-    background-color: #28a745;
+    background-color: #28a745; /* Green */
 }
 
 .badge-danger {
-    background-color: #dc3545;
+    background-color: #dc3545; /* Red */
 }
 
-/* Project Actions Styles */
 .project-actions {
-    margin-top: 15px;
+    display: flex;
+    gap: 10px;
 }
 
-.update-button,
-.delete-button {
-    padding: 10px 15px;
+.update-button, .delete-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s;
 }
 
 .update-button {
     background-color: #007bff;
-    color: #fff;
+    color: white;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
 }
 
 .update-button:hover {
     background-color: #0056b3;
 }
 
-.delete-button {
-    background-color: #dc3545;
-    color: #fff;
-}
-
 .delete-button:hover {
     background-color: #c82333;
 }
 
-/* Add More Project Button Styles */
+.update-button i, .delete-button i {
+    margin-right: 5px;
+}
+
+/* Add More Project Button */
 .add-more-project {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
     background-color: #28a745;
-    color: #fff;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
 .add-more-project:hover {
     background-color: #218838;
 }
 
-/* Responsive Styles */
+.add-more-project i {
+    margin-right: 8px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .projects-container {
-        padding: 10px;
+        padding: 15px;
     }
 
     .project-item {
         padding: 10px;
     }
 
-    .projects-container h2 {
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-
-    .project-main-info h3 {
-        font-size: 18px;
-    }
-
-    .project-main-info p {
-        font-size: 13px;
-    }
-
-    .project-details {
-        font-size: 13px;
-    }
-
-    .update-button,
-    .delete-button {
-        padding: 8px 12px;
-        font-size: 14px;
-        margin-right: 5px;
-    }
-
-    .add-more-project {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .projects-container h2 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    .project-main-info h3 {
-        font-size: 16px;
-    }
-
-    .project-main-info p,
-    .project-details,
-    .update-button,
-    .delete-button,
-    .add-more-project {
-        font-size: 12px;
-    }
-
-    .update-button,
-    .delete-button,
-    .add-more-project {
-        padding: 6px 10px;
+    .project-main-info {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

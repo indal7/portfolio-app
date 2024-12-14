@@ -41,8 +41,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ManageUsersComponent,
     AboutComponent,
     ContactComponent,
-    ProfileComponent
-  ],
+    ProfileComponent,
+    HeaderComponent,
+    ],
   imports: [
     BrowserModule,
     FormsModule,

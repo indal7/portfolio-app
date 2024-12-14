@@ -79,7 +79,7 @@
 /* styles.css or styles.scss */
 .background {
     position: relative;
-    height: 100vh; /* Full height */
+    /*height: 100vh; /* Full height */
     background-image: url('assets/img.webp'); /* Set the background image */
     background-size: cover; /* Cover the entire element */
     background-position: center; /* Center the image */
@@ -104,3 +104,7 @@
     z-index: 2; /* Ensure content is above the overlay */
 }
 
+
+body {
+    margin: 0; /* Default margin in most browsers */
+}

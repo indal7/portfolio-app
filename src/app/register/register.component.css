@@ -1,120 +1,225 @@
-/* Register Form Styles */
-.register-container {
-    max-width: 500px;
-    margin: 0 auto;
+/* Base styles */
+.profile-container {
     padding: 20px;
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Form Heading */
-.register-container h2 {
+    padding-top: 70px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .profile-container h2 {
+    font-size: 24px;
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.register-container h2 i {
-    margin-right: 8px;
-}
-
-/* Label Styling */
-label {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 8px;
-    display: block;
-}
-
-label i {
-    margin-right: 8px;
-}
-
-/* Input Field Styling */
-input {
-    width: 100%;
+  }
+  
+  .toggle-button {
+    background-color: #f4f4f4;
     padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-input:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-/* Button Styling */
-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 1.1rem;
-    background-color: #28a745;
-    color: white;
     border: none;
-    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-button i {
-    margin-right: 10px;
-}
-
-/* Success and Error Message */
-.error, .success {
-    font-size: 1rem;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .spinner {
     text-align: center;
-}
-
-.error {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-.success {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-/* Link to Login */
-button[type="button"] {
+    font-size: 18px;
+  }
+  
+  .profile-details {
+    margin-top: 20px;
+  }
+  
+  .profile-picture-wrapper {
+    text-align: center;
+  }
+  
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .skills-table th, .skills-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .skills-table th {
+    text-align: left;
+  }
+  
+  button {
     background-color: #007bff;
     color: white;
-    font-size: 1rem;
-    margin-top: 15px;
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
-    border-radius: 6px;
     cursor: pointer;
-    text-align: center;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-}
-
-button[type="button"]:hover {
+  }
+  
+  button:hover {
     background-color: #0056b3;
-}
-
-button[type="button"] i {
-    margin-right: 8px;
-}
+  }
+  
+  .register-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .register-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register-container label {
+    margin-bottom: 8px;
+  }
+  
+  .register-container input {
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .register-container button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .register-container button:hover {
+    background-color: #218838;
+  }
+  
+  .error, .success {
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 600px) {
+    .profile-container h2 {
+      font-size: 20px;
+    }
+  
+    .toggle-button {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    .profile-picture {
+      width: 120px;
+      height: 120px;
+    }
+  
+    .skills-table th, .skills-table td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    .register-container {
+      padding: 15px;
+    }
+  
+    .register-container input {
+      padding: 6px;
+      font-size: 14px;
+    }
+  
+    .register-container button {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+  
+  /* Laptop Responsiveness */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .profile-container h2 {
+      font-size: 22px;
+    }
+  
+    .toggle-button {
+      font-size: 15px;
+      padding: 9px;
+    }
+  
+    .profile-picture {
+      width: 130px;
+      height: 130px;
+    }
+  
+    .skills-table th, .skills-table td {
+      font-size: 15px;
+      padding: 9px;
+    }
+  
+    .register-container {
+      max-width: 700px;
+    }
+  
+    .register-container input {
+      padding: 7px;
+      font-size: 15px;
+    }
+  
+    .register-container button {
+      padding: 9px;
+      font-size: 15px;
+    }
+  }
+  
+  /* Desktop Responsiveness */
+  @media (min-width: 1025px) {
+    .profile-container h2 {
+      font-size: 24px;
+    }
+  
+    .toggle-button {
+      font-size: 16px;
+      padding: 10px;
+    }
+  
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .skills-table th, .skills-table td {
+      font-size: 16px;
+      padding: 10px;
+    }
+  
+    .register-container {
+      max-width: 800px;
+    }
+  
+    .register-container input {
+      padding: 8px;
+      font-size: 16px;
+    }
+  
+    .register-container button {
+      padding: 10px;
+      font-size: 16px;
+    }
+  }
+  

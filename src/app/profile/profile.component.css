@@ -1,217 +1,242 @@
 /* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
+.profile-container {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding-top: 70px;
   }
   
-  .profile-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2, h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  button i {
-    margin-right: 8px;
-  }
-  
-  /* Edit Button */
-  .toggle-button {
-    background-color: #28a745;
-  }
-  
-  .toggle-button i {
-    font-size: 18px;
-  }
-  
-  /* Cancel Edit Button */
-  .toggle-button[ngClass="fa-times"] {
-    background-color: #dc3545;
-  }
-  
-  /* Loading Spinner */
-  .spinner {
-    font-size: 20px;
-    color: #007bff;
+  h2 {
     text-align: center;
-    padding: 20px;
+    font-size: 24px;
   }
   
-  /* Profile Details */
-  .profile-details {
+  h3 {
     margin-top: 20px;
   }
   
+  button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
+  button i {
+    margin-right: 5px;
+  }
+  
+  .spinner {
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+  }
+  
+  .profile-details {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Profile Picture */
   .profile-picture-wrapper {
     display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-bottom: 20px;
   }
   
   .profile-picture {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    margin-right: 20px;
+    object-fit: cover;
   }
   
-  .profile-details p {
-    margin: 10px 0;
+  .profile-picture-wrapper p {
+    text-align: center;
+    margin-top: 10px;
   }
   
-  strong {
-    font-weight: bold;
-  }
-  
-  /* Skills Table */
-  .skills-table {
+  table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
   }
   
-  .skills-table th, .skills-table td {
-    padding: 12px;
+  th, td {
     text-align: left;
-    border: 1px solid #ddd;
+    padding: 8px;
   }
   
-  .skills-table th {
-    background-color: #f8f9fa;
+  th {
+    background-color: #f2f2f2;
   }
   
-  .skills-table td button {
-    background-color: transparent;
-    border: none;
-    color: #dc3545;
-    cursor: pointer;
+  .skills-table {
+    border: 1px solid #ccc;
+    margin-top: 10px;
   }
   
-  .skills-table td button:hover {
-    color: #c82333;
-  }
-  
-  .skills-table td i {
-    margin-right: 5px;
-  }
-  
-  /* Form Elements */
-  form {
-    margin-top: 30px;
-  }
-  
-  label {
-    font-size: 16px;
-    margin-bottom: 8px;
-    display: block;
-  }
-  
-  input, select, textarea {
+  .skills-table input,
+  .skills-table select,
+  .skills-table textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
+    padding: 8px;
+    margin-top: 5px;
   }
   
-  textarea {
-    resize: vertical;
-  }
-  
-  input[type="file"] {
-    padding: 5px;
-  }
-  
-  select {
-    font-size: 16px;
-  }
-  
-  button[type="submit"] {
-    background-color: #28a745;
-    font-size: 18px;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #218838;
-  }
-  
-  /* Tags Section */
   .tags-container {
     display: flex;
     flex-wrap: wrap;
   }
   
   .tag {
-    background-color: #007bff;
-    color: white;
-    border-radius: 16px;
-    padding: 5px 10px;
+    background-color: #f1f1f1;
+    padding: 5px;
     margin: 5px;
-    display: flex;
-    align-items: center;
+    border-radius: 4px;
+    font-size: 14px;
   }
   
   .tag button {
     background-color: transparent;
     border: none;
-    color: white;
     cursor: pointer;
-    margin-left: 5px;
+    color: red;
   }
   
-  .tag button:hover {
-    color: #dc3545;
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: 10px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    .profile-picture {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .profile-picture-wrapper p {
+      font-size: 14px;
+    }
+  
+    button {
+      width: 100%;
+      font-size: 18px;
+    }
+  
+    .profile-details {
+      margin: 10px;
+    }
+  
+    .skills-table {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .skills-table input,
+    .skills-table select,
+    .skills-table textarea {
+      font-size: 14px;
+    }
+  
+    .tags-container {
+      flex-direction: column;
+    }
+  
+    .tag {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  
+    /* Form Inputs */
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      margin-top: 8px;
+    }
+  
+    /* Hide some sections on small screens */
+    .profile-details .profile-picture-wrapper {
+      margin-top: 10px;
+    }
+  
+    .profile-details .skills-table {
+      margin-top: 15px;
+    }
   }
   
-  /* Error Message */
-  .error-message {
-    color: #dc3545;
-    font-size: 16px;
-    margin-top: 20px;
+  /* Laptop Responsiveness */
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .profile-container {
+      padding: 20px;
+    }
+  
+    .profile-picture-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+  
+    .profile-details .profile-picture-wrapper p {
+      font-size: 16px;
+    }
+  
+    table {
+      width: 100%;
+      margin-top: 20px;
+    }
+  
+    button {
+      font-size: 18px;
+    }
+  
+    .skills-table input,
+    .skills-table select,
+    .skills-table textarea {
+      font-size: 16px;
+    }
   }
   
-  /* Profile Picture Placeholder */
-  .profile-picture-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    background-color: #f0f0f0;
-    border-radius: 50%;
-    color: #888;
-    font-size: 20px;
+  /* Large Screens (Laptop and Desktop) */
+  @media (min-width: 1201px) {
+    .profile-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  
+    h2 {
+      font-size: 26px;
+    }
+  
+    .profile-details .profile-picture-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  
+    .profile-picture-wrapper p {
+      font-size: 18px;
+    }
+  
+    .skills-table input,
+    .skills-table select,
+    .skills-table textarea {
+      font-size: 16px;
+    }
   }
   
-  .profile-picture-wrapper p {
-    font-size: 14px;
-    color: #888;
-    margin-top: 10px;
-  }
   

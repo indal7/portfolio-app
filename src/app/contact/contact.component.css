@@ -1,16 +1,92 @@
-.about-container, .contact-container {
+/* Base styles for contact-container */
+.contact-container {
     padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding-top: 70px;
+    margin: 0 auto;
+    max-width: 1200px;
     text-align: center;
-}
-
-h2 {
-    color: #333;
-}
-
-p {
-    font-size: 18px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .contact-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contact-container h2 i {
+    margin-right: 10px;
+  }
+  
+  .contact-container p {
+    font-size: 1.1rem;
     color: #555;
-}
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contact-container p i {
+    margin-right: 10px;
+  }
+  
+  /* Mobile responsiveness (default styles) */
+  @media screen and (max-width: 600px) {
+    .contact-container {
+      padding: 15px;
+    }
+  
+    .contact-container h2 {
+      font-size: 2rem;
+    }
+  
+    .contact-container p {
+      font-size: 1rem;
+    }
+  
+    .contact-container i {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Tablet / Laptop responsiveness */
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    .contact-container {
+      padding: 25px;
+    }
+  
+    .contact-container h2 {
+      font-size: 2.2rem;
+    }
+  
+    .contact-container p {
+      font-size: 1.1rem;
+    }
+  
+    .contact-container i {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /* Desktop responsiveness (for large laptop and above) */
+  @media screen and (min-width: 1025px) {
+    .contact-container {
+      padding: 30px;
+    }
+  
+    .contact-container h2 {
+      font-size: 2.5rem;
+    }
+  
+    .contact-container p {
+      font-size: 1.2rem;
+    }
+  
+    .contact-container i {
+      font-size: 1.8rem;
+    }
+  }
+  

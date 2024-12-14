@@ -1,103 +1,151 @@
-/* Basic Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7fc; /* Light background for contrast */
-    color: #333;
-    margin: 0;
-    padding: 0;
+/* Base styles for the form */
+div {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    padding-top: 70px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
   }
   
   h2 {
-    font-size: 24px;
-    color: #333;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 20px;
   }
   
-  /* Form Container */
-  div {
-    max-width: 600px;
-    margin: 30px auto;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    border: 1px solid #ddd;
+  h2 i {
+    margin-right: 10px;
   }
   
-  /* Form Group Styles */
   .form-group {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
+    margin-bottom: 15px;
   }
   
-  /* Input Fields and Select */
-  input, select {
+  label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  input, select, button {
     width: 100%;
-    padding: 12px;
-    margin-left: 10px; /* Space between icon and input */
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 5px;
     border-radius: 4px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    color: #333;
-    background-color: #f9f9f9;
-    transition: all 0.3s ease; /* Smooth transition */
-  }
-  
-  input:focus, select:focus {
-    border-color: #007bff;
-    background-color: #e9f3ff; /* Light blue background on focus */
-    outline: none;
+    border: 1px solid #ccc;
   }
   
   input[type="file"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
+    width: auto;
   }
   
-  input[type="file"]:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Icon Style */
-  .form-group i {
-    font-size: 20px;
-    color: #007bff; /* Icon color */
-    margin-right: 15px; /* Space between icon and text */
-  }
-  
-  /* Button Style */
   button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff; /* Button color */
+    background-color: #4CAF50;
     color: white;
-    font-size: 16px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Button hover effect */
+    font-size: 1.1rem;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-align: center;
   }
   
   button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #45a049;
   }
   
-  button i {
-    margin-right: 10px; /* Space between icon and button text */
+  button:focus {
+    outline: none;
   }
   
-  /* Responsive Styling for Small Screens */
-  @media (max-width: 768px) {
+  button[type="submit"] {
+    margin-right: 10px;
+  }
+  
+  /* Icons for form fields */
+  i {
+    margin-right: 8px;
+  }
+  
+  /* Mobile responsiveness (default styles) */
+  @media screen and (max-width: 600px) {
+    div {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  
     .form-group {
-      flex-direction: column; /* Stack icons and input fields on small screens */
-      align-items: flex-start;
+      margin-bottom: 12px;
     }
   
     input, select, button {
-      font-size: 14px; /* Slightly smaller text on smaller screens */
+      font-size: 0.9rem;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+  
+  /* Tablet / Laptop responsiveness */
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    div {
+      padding: 20px;
+    }
+  
+    h2 {
+      font-size: 2.2rem;
+    }
+  
+    .form-group {
+      margin-bottom: 15px;
+    }
+  
+    input, select, button {
+      font-size: 1rem;
+    }
+  
+    button {
+      width: 48%;
+      margin-top: 20px;
+    }
+  
+    button[type="submit"] {
+      margin-right: 5px;
+    }
+  }
+  
+  /* Desktop responsiveness (for large laptop and above) */
+  @media screen and (min-width: 1025px) {
+    div {
+      padding: 30px;
+    }
+  
+    h2 {
+      font-size: 2.5rem;
+    }
+  
+    .form-group {
+      margin-bottom: 20px;
+    }
+  
+    input, select, button {
+      font-size: 1.1rem;
+    }
+  
+    button {
+      width: auto;
+      margin-top: 20px;
+    }
+  
+    button[type="submit"] {
+      margin-right: 10px;
     }
   }
   

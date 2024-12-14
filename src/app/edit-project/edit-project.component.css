@@ -1,85 +1,148 @@
-/* Update Project Container */
+/* Base styles for the update project form */
 .update-project-container {
-    max-width: 600px;
-    margin: 30px auto;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    border: 1px solid #ddd;
-}
-
-/* Form Group Styling */
-.form-group {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-
-/* Label Styling with Icons */
-.form-group label {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-.form-group i {
-    margin-right: 8px; /* Space between icon and label text */
-    font-size: 18px;
-    color: #007bff; /* Icon color */
-}
-
-/* Input Fields and Select */
-input, textarea, select {
-    width: 100%;
-    padding: 12px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    color: #333;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    padding-top: 70px;
+    font-family: Arial, sans-serif;
     background-color: #f9f9f9;
-    transition: all 0.3s ease;
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: #007bff;
-    background-color: #e9f3ff; /* Light blue background on focus */
-    outline: none;
-}
-
-/* Button Styling */
-button {
+    border-radius: 8px;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h2 i {
+    margin-right: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  input, select, textarea, button {
     width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 5px;
     border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-button i {
-    margin-right: 10px; /* Space between icon and button text */
-}
-
-/* Responsive Design for Small Screens */
-@media (max-width: 768px) {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  /* Icons for form fields */
+  i {
+    margin-right: 8px;
+  }
+  
+  /* Mobile responsiveness */
+  @media screen and (max-width: 600px) {
+    .update-project-container {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  
     .form-group {
-        flex-direction: column;
-        align-items: flex-start;
+      margin-bottom: 12px;
     }
-
-    input, select, button {
-        font-size: 14px;
+  
+    input, select, textarea, button {
+      font-size: 0.9rem;
     }
-}
+  
+    button {
+      width: 100%;
+    }
+  }
+  
+  /* Tablet / Laptop responsiveness */
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    .update-project-container {
+      padding: 20px;
+    }
+  
+    h2 {
+      font-size: 2.2rem;
+    }
+  
+    .form-group {
+      margin-bottom: 15px;
+    }
+  
+    input, select, textarea, button {
+      font-size: 1rem;
+    }
+  
+    button {
+      width: 48%;
+      margin-top: 20px;
+    }
+  
+    button[type="submit"] {
+      margin-right: 5px;
+    }
+  }
+  
+  /* Desktop responsiveness (large laptop and above) */
+  @media screen and (min-width: 1025px) {
+    .update-project-container {
+      padding: 30px;
+    }
+  
+    h2 {
+      font-size: 2.5rem;
+    }
+  
+    .form-group {
+      margin-bottom: 20px;
+    }
+  
+    input, select, textarea, button {
+      font-size: 1.1rem;
+    }
+  
+    button {
+      width: auto;
+      margin-top: 20px;
+    }
+  
+    button[type="submit"] {
+      margin-right: 10px;
+    }
+  }
+  

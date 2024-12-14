@@ -9,14 +9,6 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    display: flex;
-    flex-direction: column;
-    /*min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
-}
-
-/* Main Content Area */
-.main-content {
-    flex: 1; /* This allows the content area to take up remaining space */
 }
 
 /* Footer Styles */
@@ -26,43 +18,67 @@ body {
     text-align: center; /* Center align the text */
     padding: 20px 15px; /* Add padding for breathing space */
     font-size: 16px; /* Default font size */
+    position: fixed; /* Sticks the footer at the bottom */
     width: 100%;
-    bottom: 0; /* Push the footer to the bottom */
+    bottom: 0;
+    display: flex; /* For aligning content properly */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
 }
 
+/* Footer Paragraph */
 .footer p {
-    margin: 0;
-    padding: 0;
+    margin: 5px 0; /* Add a bit of spacing */
 }
 
-/* Desktop view adjustments */
+/* Social Icons */
+.footer .social-icons {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px; /* Space between icons */
+    justify-content: center;
+}
+
+.footer .social-icons a {
+    color: #fff; /* Default white color for icons */
+    font-size: 20px; /* Default size for icons */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.footer .social-icons a:hover {
+    color: #ffc107; /* Highlight color on hover */
+}
+
+/* Responsive Styles */
 @media (min-width: 769px) {
     .footer {
-        font-size: 16px; /* Regular font size */
+        font-size: 16px; /* Regular font size for desktops */
     }
 }
 
-/* Tablet and mobile view adjustments */
 @media (max-width: 768px) {
     .footer {
-        font-size: 14px; /* Slightly smaller font size */
+        font-size: 14px; /* Slightly smaller font size for tablets */
         padding: 15px 10px; /* Compact padding for smaller screens */
     }
-}
 
-/* Mobile-specific adjustments */
-@media (max-width: 480px) {
-    .footer {
-        font-size: 12px; /* Smaller font for compact view */
-        padding: 10px 8px; /* Compact padding */
+    .footer .social-icons a {
+        font-size: 18px; /* Adjust icon size for tablets */
     }
 }
 
+@media (max-width: 480px) {
+    .footer {
+        font-size: 12px; /* Smaller font size for mobiles */
+        padding: 10px 8px; /* More compact padding */
+    }
 
+    .footer .social-icons {
+        flex-wrap: wrap; /* Allow icons to wrap for smaller screens */
+        gap: 10px; /* Reduce spacing between icons */
+    }
 
-
-
-
-
-
-
+    .footer .social-icons a {
+        font-size: 16px; /* Adjust icon size for mobiles */
+    }
+}

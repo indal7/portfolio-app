@@ -1,0 +1,47 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%; /* Ensure body and html take full height */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+}
+
+main {
+    flex: 1; /* Main content grows to fill the space between header and footer */
+    overflow-y: auto; /* Allows scrolling when content overflows */
+}
+
+/* Header Styles */
+app-header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    z-index: 1; /* Keep header on top */
+}
+
+/* Footer Styles */
+app-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    z-index: 1;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1; /* Fills available space */
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    background-color: #f9f9f9; /* Optional background for content */
+    overflow-y: auto; /* Adds scrolling to the main content */
+}

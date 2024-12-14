@@ -1,196 +1,240 @@
-/* General Container */
-.projects-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Heading */
-h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-/* Project List Styles */
-.projects-list {
-  list-style: none;
-  padding: 0;
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
-.project-item {
+h2, h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+/* Profile Container */
+.profile-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding-top: 70px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 20px;
 }
 
-.project-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+.profile-picture-wrapper {
+  text-align: center;
 }
 
-/* Project Title */
-.project-main-info h3 {
-  font-size: 1.5rem;
-  margin: 0;
-  color: #333;
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-/* Project Description */
-.project-main-info p {
-  font-size: 1rem;
-  margin: 10px 0;
-  color: #555;
-}
-
-/* Project Link */
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  color: #007bff;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.project-link i {
-  margin-right: 8px;
-}
-
-.project-link:hover {
-  color: #0056b3;
-}
-
-/* Badge Styles */
-.badge {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  margin-top: 10px;
-}
-
-.badge-success {
-  background-color: #28a745;
-  color: white;
-}
-
-.badge-danger {
-  background-color: #dc3545;
-  color: white;
-}
-
-.badge-complete {
-  background-color: #17a2b8;
-  color: white;
-}
-
-.badge-cancelled {
-  background-color: #6c757d;
-  color: white;
-}
-
-/* Updated On Styling */
-.project-item p {
-  font-size: 0.9rem;
-  color: #777;
-  margin: 5px 0;
-}
-
-/* Actions Buttons */
-.project-actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 15px;
+.skills-table, .skills-table input, .skills-table select, .skills-table textarea {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.spinner {
+  text-align: center;
+  font-size: 1.2em;
+  color: #888;
+}
+
+/* Profile Section */
+.profile-details p {
+  margin: 10px 0;
+}
+
+.profile-details label {
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  height: 80px;
+}
+
+.skills-table thead th, .skills-table tbody td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.tags-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 0.9em;
   display: inline-flex;
   align-items: center;
-  padding: 10px 20px;
-  font-size: 1rem;
+}
+
+.tag button {
+  background: transparent;
   border: none;
-  border-radius: 4px;
+  margin-left: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  outline: none;
 }
 
-/* Update Button */
-.update-button {
-  background-color: #ffc107;
-  color: white;
+.projects-container {
+  width: 100%;
+  margin-top: 40px;
 }
 
-.update-button:hover {
-  background-color: #e0a800;
-  transform: translateY(-2px);
+.projects-list {
+  list-style: none;
+  padding: 0;
 }
 
-.update-button i {
-  margin-right: 8px;
+.project-item {
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Delete Button */
-.delete-button {
-  background-color: #dc3545;
-  color: white;
+.project-main-info {
+  margin-bottom: 15px;
 }
 
-.delete-button:hover {
-  background-color: #c82333;
-  transform: translateY(-2px);
+.project-link {
+  color: #007bff;
+  text-decoration: none;
 }
 
-.delete-button i {
-  margin-right: 8px;
-}
-
-/* Add More Project Button */
-.add-more-project {
+.project-actions button {
   background-color: #28a745;
-  color: white;
-  font-size: 1.1rem;
-  margin-top: 20px;
-  padding: 12px 25px;
-  border-radius: 6px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.add-more-project:hover {
-  background-color: #218838;
-  transform: translateY(-2px);
-}
-
-.add-more-project i {
   margin-right: 10px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+.project-actions .delete-button {
+  background-color: #dc3545;
+}
+
+.project-actions button:hover {
+  opacity: 0.8;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  .profile-container {
+    padding: 15px;
+  }
+
+  .profile-details {
+    gap: 15px;
+  }
+
+  .profile-picture {
+    width: 80px;
+    height: 80px;
+  }
+
+  .skills-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .profile-details p {
+    font-size: 14px;
+  }
+
+  .tags-container {
+    flex-direction: column;
+  }
+
   .projects-container {
-      padding: 10px;
+    margin-top: 30px;
+  }
+
+  .projects-list {
+    padding-left: 20px;
   }
 
   .project-item {
-      padding: 15px;
+    padding: 10px;
   }
 
-  .project-actions {
-      flex-direction: column;
-      gap: 10px;
+  .project-actions button {
+    padding: 8px 12px;
+  }
+
+  .project-actions .delete-button,
+  .project-actions button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-container {
+    padding: 10px;
+  }
+
+  .profile-details {
+    gap: 10px;
+  }
+
+  .profile-picture {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-details p {
+    font-size: 12px;
+  }
+
+  .skills-table input,
+  .skills-table select,
+  .skills-table textarea {
+    padding: 8px;
+  }
+
+  .project-item {
+    padding: 8px;
+  }
+
+  .project-actions button {
+    padding: 6px 12px;
   }
 }
